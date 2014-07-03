@@ -179,6 +179,20 @@
   <span class="n">root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">svg</span><span class="p">)</span>
 
   <span class="n">controls</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s">&quot;div&quot;</span><span class="p">,</span> <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;class&quot;</span><span class="p">:</span><span class="s">&quot;toyplot-controls&quot;</span><span class="p">})</span>
+  <span class="n">mark_popup</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">controls</span><span class="p">,</span> <span class="s">&quot;ul&quot;</span><span class="p">,</span> <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;class&quot;</span><span class="p">:</span><span class="s">&quot;toyplot-mark-popup&quot;</span><span class="p">},</span> <span class="n">onmouseleave</span><span class="o">=</span><span class="s">&quot;this.style.visibility=&#39;hidden&#39;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">_css_style</span><span class="p">({</span>
+    <span class="s">&quot;background&quot;</span><span class="p">:</span><span class="s">&quot;rgba(0%,0%,0%,0.75)&quot;</span><span class="p">,</span>
+    <span class="s">&quot;border&quot;</span><span class="p">:</span><span class="s">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s">&quot;border-radius&quot;</span><span class="p">:</span><span class="s">&quot;6px&quot;</span><span class="p">,</span>
+    <span class="s">&quot;color&quot;</span><span class="p">:</span><span class="s">&quot;white&quot;</span><span class="p">,</span>
+    <span class="s">&quot;cursor&quot;</span><span class="p">:</span><span class="s">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s">&quot;list-style&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">,</span>
+    <span class="s">&quot;margin&quot;</span><span class="p">:</span><span class="s">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s">&quot;padding&quot;</span><span class="p">:</span><span class="s">&quot;5px&quot;</span><span class="p">,</span>
+    <span class="s">&quot;position&quot;</span><span class="p">:</span><span class="s">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="s">&quot;visibility&quot;</span><span class="p">:</span><span class="s">&quot;hidden&quot;</span><span class="p">,</span>
+    <span class="p">}))</span>
+  <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">mark_popup</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;class&quot;</span><span class="p">:</span><span class="s">&quot;toyplot-mark-popup-title&quot;</span><span class="p">},</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;color:lightgray;cursor:default;padding:5px&quot;</span><span class="p">)</span>
+  <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">mark_popup</span><span class="p">,</span> <span class="s">&quot;li&quot;</span><span class="p">,</span> <span class="n">attrib</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;class&quot;</span><span class="p">:</span><span class="s">&quot;toyplot-mark-popup-save-csv&quot;</span><span class="p">},</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;border-radius:3px;padding:5px&quot;</span><span class="p">,</span> <span class="n">onmouseover</span><span class="o">=</span><span class="s">&quot;this.style.color=&#39;steelblue&#39;;this.style.background=&#39;white&#39;&quot;</span><span class="p">,</span> <span class="n">onmouseout</span><span class="o">=</span><span class="s">&quot;this.style.color=&#39;white&#39;;this.style.background=&#39;steelblue&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;Save as .csv&quot;</span>
 
   <span class="k">if</span> <span class="n">svg</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;.//text&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
     <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">controls</span><span class="p">,</span> <span class="s">&quot;script&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
@@ -228,6 +242,59 @@
 <span class="s">      }</span>
 <span class="s">    })();</span>
 <span class="s">    &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span> <span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">))</span>
+
+  <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">svg</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s">&quot;toyplot:data-table&quot;</span><span class="p">)):</span>
+    <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">controls</span><span class="p">,</span> <span class="s">&quot;script&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    // Allow users to extract embedded raw data</span>
+<span class="s">    (function()</span>
+<span class="s">    {</span>
+<span class="s">      var root_id=&quot;</span><span class="si">%s</span><span class="s">&quot;;</span>
+
+<span class="s">      function save_csv(dataset)</span>
+<span class="s">      {</span>
+<span class="s">        uri = &quot;data:text/csv;charset=utf-8,&quot;;</span>
+<span class="s">        data = JSON.parse(dataset.textContent);</span>
+<span class="s">        uri += data.names.join(&quot;,&quot;) + &quot;</span><span class="se">\\</span><span class="s">n&quot;;</span>
+<span class="s">        for(var i = 0; i != data.data[0].length; ++i)</span>
+<span class="s">        {</span>
+<span class="s">          for(var j = 0; j != data.data.length; ++j)</span>
+<span class="s">          {</span>
+<span class="s">            if(j)</span>
+<span class="s">              uri += &quot;,&quot;;</span>
+<span class="s">            uri += data.data[j][i];</span>
+<span class="s">          }</span>
+<span class="s">          uri += &quot;</span><span class="se">\\</span><span class="s">n&quot;;</span>
+<span class="s">        }</span>
+
+<span class="s">        uri = encodeURI(uri);</span>
+<span class="s">        window.open(uri);</span>
+<span class="s">      }</span>
+
+<span class="s">      function open_popup(dataset)</span>
+<span class="s">      {</span>
+<span class="s">        return function(e)</span>
+<span class="s">        {</span>
+<span class="s">          var popup = document.querySelector(&quot;#&quot; + root_id + &quot; .toyplot-mark-popup&quot;);</span>
+<span class="s">          popup.querySelector(&quot;.toyplot-mark-popup-title&quot;).innerHTML = dataset.getAttribute(&quot;title&quot;);</span>
+<span class="s">          popup.querySelector(&quot;.toyplot-mark-popup-save-csv&quot;).onclick = function() { popup.style.visibility = &quot;hidden&quot;; save_csv(dataset); }</span>
+<span class="s">          popup.style.left = (e.clientX - 50) + &quot;px&quot;;</span>
+<span class="s">          popup.style.top = (e.clientY - 20) + &quot;px&quot;;</span>
+<span class="s">          popup.style.visibility = &quot;visible&quot;;</span>
+<span class="s">          e.stopPropagation();</span>
+<span class="s">          e.preventDefault();</span>
+<span class="s">        }</span>
+
+<span class="s">      }</span>
+
+<span class="s">      var datasets = document.querySelectorAll(&quot;#&quot; + root_id + &quot; toyplot</span><span class="se">\\\\</span><span class="s">:data-table&quot;);</span>
+<span class="s">      for(var i = 0; i != datasets.length; ++i)</span>
+<span class="s">      {</span>
+<span class="s">        var dataset = datasets[i];</span>
+<span class="s">        var mark = dataset.parentElement;</span>
+<span class="s">        mark.oncontextmenu = open_popup(dataset);</span>
+<span class="s">      }</span>
+<span class="s">    })();</span>
+<span class="s">    &quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),)</span>
 
   <span class="k">if</span> <span class="n">svg</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;.//*[@class=&#39;toyplot-coordinates&#39;]&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
     <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">controls</span><span class="p">,</span> <span class="s">&quot;script&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
@@ -486,9 +553,9 @@
 <span class="s">            for(var i = 0; i != type_changes.length; ++i)</span>
 <span class="s">            {</span>
 <span class="s">              var datum_style = type_changes[i];</span>
-<span class="s">              var datum = get_item(datum_style[0]).childNodes[datum_style[1]];</span>
-<span class="s">              for(var key in datum_style[2])</span>
-<span class="s">                datum.style.setProperty(key, datum_style[2][key]);</span>
+<span class="s">              var datum = get_item(datum_style[0]).querySelectorAll(&quot;.toyplot-Series&quot;)[datum_style[1]].querySelectorAll(&quot;.toyplot-Datum&quot;)[datum_style[2]];</span>
+<span class="s">              for(var key in datum_style[3])</span>
+<span class="s">                datum.style.setProperty(key, datum_style[3][key]);</span>
 <span class="s">            }</span>
 <span class="s">          }</span>
 <span class="s">          else if(type == &quot;set-mark-text&quot;)</span>

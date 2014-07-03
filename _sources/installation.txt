@@ -49,7 +49,7 @@ in order to run the setup script itself:
 
 Now, you're ready to install Toyplot::
 
-    $ git clone https://github.com/sandialabs/toyplot.git
+    $ git clone https://github.sandia.gov/toyplot/toyplot.git
     $ cd toyplot
     $ python setup.py install
 
