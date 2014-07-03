@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>toyplot.selenium &mdash; Toyplot 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/toyplot.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Toyplot 0.1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="toyplot" href="../toyplot.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> Toyplot</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing Toyplot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#from-source">From Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">The Toyplot Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#styles">Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#plotting">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#palettes">Palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#filled-regions">Filled Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#barplots">Barplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#scatterplots">Scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#markers">Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#rendering">Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#axes">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hacking.html">Toyplot for Hackers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#running-regression-tests">Running Regression Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#modifying-regression-tests">Modifying Regression Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#test-coverage">Test Coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hacking.html#building-the-documentation">Building the Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">The Toyplot Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toyplot.html">toyplot module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../toyplot.color.html">toyplot.color module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../toyplot.color.css.html">toyplot.color.css module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backends.html">Toyplot Backends</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Toyplot</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../toyplot.html">toyplot</a> &raquo;</li>
+      
+    <li>toyplot.selenium</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for toyplot.selenium</h1><div class="highlight"><pre>
+<span class="c"># Copyright 2014, Sandia Corporation. Under the terms of Contract</span>
+<span class="c"># DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains certain</span>
+<span class="c"># rights in this software.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<div class="viewcode-block" id="show"><a class="viewcode-back" href="../../toyplot.selenium.html#toyplot.selenium.show">[docs]</a><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;Toyplot Figure&quot;</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Display a canvas in a web browser.</span>
+
+<span class="sd">  Parameters</span>
+<span class="sd">  ----------</span>
+<span class="sd">  canvas : :class:`toyplot.Canvas`</span>
+<span class="sd">    The canvas to be displayed.</span>
+
+<span class="sd">  title : string, optional</span>
+<span class="sd">    Optional page title to be displayed in the browser.</span>
+
+<span class="sd">  Returns</span>
+<span class="sd">  -------</span>
+<span class="sd">  browser : selenium webdriver object that can be used to control the browser.</span>
+
+<span class="sd">  Notes</span>
+<span class="sd">  -----</span>
+<span class="sd">  The output HTML is generated using :func:`toyplot.html.render`.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="kn">import</span> <span class="nn">os</span>
+  <span class="kn">import</span> <span class="nn">selenium.webdriver</span>
+  <span class="kn">import</span> <span class="nn">tempfile</span>
+  <span class="kn">import</span> <span class="nn">toyplot.html</span>
+  <span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">xml</span>
+
+  <span class="n">figure</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+  <span class="n">html</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s">&quot;html&quot;</span><span class="p">)</span>
+  <span class="n">head</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&quot;head&quot;</span><span class="p">)</span>
+  <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="s">&quot;title&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">title</span>
+  <span class="n">body</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">&quot;body&quot;</span><span class="p">)</span>
+  <span class="n">body</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">figure</span><span class="p">)</span>
+
+  <span class="n">fd</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s">&quot;.html&quot;</span><span class="p">)</span>
+  <span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">fdopen</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xml</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;html&quot;</span><span class="p">))</span>
+
+  <span class="n">browser</span> <span class="o">=</span> <span class="n">selenium</span><span class="o">.</span><span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+  <span class="n">browser</span><span class="o">.</span><span class="n">set_window_size</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">_width</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+  <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;file://&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">browser</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Sandia Corporation. Under the terms of Contract
+DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains certain
+rights in this software.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

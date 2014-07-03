@@ -1,0 +1,7 @@
+toyplot.ps module
+=================
+
+.. automodule:: toyplot.ps
+    :members:
+    :undoc-members:
+    :show-inheritance:

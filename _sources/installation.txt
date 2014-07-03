@@ -1,0 +1,55 @@
+.. image:: ../artwork/toyplot.png
+  :width: 200px
+  :align: right
+
+Installing Toyplot
+==================
+
+Using Your OS Package Manager
+-----------------------------
+
+Your operating system package manage manager (apt, yum, MacPorts, etc) should
+be your first stop for installing Toyplot - using your package manager will
+make it easy to install Toyplot and its dependencies, keep them up-to-date, and
+even (gasp!) uninstall them cleanly.  If your package manager doesn't support
+Toyplot yet, drop them a line and let them know you'd like them to add it!
+
+Using Pip / Easy Install
+------------------------
+
+If your package manager doesn't support Toyplot, or doesn't have the latest
+version, your next option should be Python setup tools like `pip` (preferred)
+or `easy_install`.  You can always install the latest stable version of toyplot
+and its dependencies with::
+
+    $ pip install toyplot
+
+or::
+
+    $ easy_install toyplot
+
+From Source
+-----------
+
+Finally, if you want to work with the latest, bleeding-edge Toyplot goodness,
+you can install it from source code, but you'll need to have its dependencies
+installed first:
+
+* Python 2.7 - http://python.org
+* numpy - http://numpy.org
+
+If you want to generate PDF, PNG, Postscript, PDF, or MP4 versions of your Toyplot figures:
+
+* cairo, pango, pangocairo - typically installed using pygtk - http://www.pygtk.org
+
+The following isn't needed to run Toyplot once it's installed, but you need it
+in order to run the setup script itself:
+
+* setuptools - http://pythonhosted.org//setuptools
+
+Now, you're ready to install Toyplot::
+
+    $ git clone https://github.com/sandialabs/toyplot.git
+    $ cd toyplot
+    $ python setup.py install
+
