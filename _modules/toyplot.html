@@ -70,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#palettes">Palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#filled-regions">Filled Regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#barplots">Barplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#plots-revisited">Plots Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#scatterplots">Scatterplots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#markers">Markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial.html#rendering">Rendering</a></li>
@@ -212,15 +213,6 @@
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Expected a string value or None, received </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">value</span>
 
-<span class="k">def</span> <span class="nf">_require_string_array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;string&quot;</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>
-    <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">length</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">!=</span> <span class="n">length</span><span class="p">:</span>
-      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Expected </span><span class="si">%s</span><span class="s"> values, received </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)))</span>
-  <span class="k">return</span> <span class="n">array</span>
-
 <span class="k">def</span> <span class="nf">_require_marker_array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
   <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">basestring</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
     <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">length</span><span class="p">)</span>
@@ -241,13 +233,24 @@
 
 <span class="k">def</span> <span class="nf">_broadcast_scalar</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
   <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;float64&quot;</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">return</span> <span class="n">array</span>
+  <span class="c"># As a special-case, allow a vector with shape M to be matched-up with an M x 1 matrix.</span>
+  <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">_broadcast_string</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+  <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;string&quot;</span><span class="p">)</span>
+  <span class="c"># As a special-case, allow a vector with shape M to be matched-up with an M x 1 matrix.</span>
+  <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">_broadcast_object</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
   <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">return</span> <span class="n">array</span>
+  <span class="c"># As a special-case, allow a vector with shape M to be matched-up with an M x 1 matrix.</span>
+  <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">_region</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gutter</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
   <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -628,8 +631,8 @@
 <div class="viewcode-block" id="PlotMark"><a class="viewcode-back" href="../toyplot.html#toyplot.PlotMark">[docs]</a><span class="k">class</span> <span class="nc">PlotMark</span><span class="p">(</span><span class="n">Mark</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Plot multiple bivariate data series using lines and/or markers.</span>
 
-<span class="sd">  Do not create PlotMark instances directly.  Use factory methods such</span>
-<span class="sd">  as :meth:`toyplot.Axes2D.plot` instead.</span>
+<span class="sd">  Do not create PlotMark instances directly.  Use factory methods such as</span>
+<span class="sd">  :meth:`toyplot.Axes2D.plot` and :meth:`toyplot.Axes2D.scatterplot` instead.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">along</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">stroke</span><span class="p">,</span> <span class="n">stroke_width</span><span class="p">,</span> <span class="n">stroke_opacity</span><span class="p">,</span> <span class="n">marker</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fill</span><span class="p">,</span> <span class="n">opacity</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">mstyle</span><span class="p">,</span> <span class="n">mlstyle</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
     <span class="n">Mark</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
@@ -653,30 +656,32 @@
 <div class="viewcode-block" id="ExplicitTickLocator"><a class="viewcode-back" href="../toyplot.html#toyplot.ExplicitTickLocator">[docs]</a><span class="k">class</span> <span class="nc">ExplicitTickLocator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Explicitly specify a collection of tick locations and labels for an axis.</span>
 
+<span class="sd">  You must specify the set of locations, the set of labels, or both.  If you</span>
+<span class="sd">  only specify locations, the labels will be generated using a formatting</span>
+<span class="sd">  string.  If you only specify labels, the locations will default to integers</span>
+<span class="sd">  in the range $[0, n)$.  The latter behavior is especially useful for</span>
+<span class="sd">  categorical axes.</span>
+
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
-<span class="sd">  locations : sequence of tick locations</span>
+<span class="sd">  locations : sequence of tick locations (numbers), optional</span>
 <span class="sd">  labels : sequence of tick labels (strings), optional</span>
-<span class="sd">  format : format string used to generate labels from tick locations, optional</span>
 <span class="sd">  titles : sequence of tick titles (strings), optional</span>
+<span class="sd">  format : format string used to generate labels from tick locations, optional</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locations</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&quot;{:g}&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">locations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="n">locations</span> <span class="o">=</span> <span class="n">_require_scalar_vector</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
-      <span class="n">labels</span> <span class="o">=</span> <span class="n">_require_string_array</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">))</span>
+      <span class="n">locations</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;float64&quot;</span><span class="p">)</span>
+      <span class="n">labels</span> <span class="o">=</span> <span class="n">_broadcast_string</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">))</span>
     <span class="k">elif</span> <span class="n">locations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="n">locations</span> <span class="o">=</span> <span class="n">_require_scalar_vector</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
+      <span class="n">locations</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;float64&quot;</span><span class="p">)</span>
       <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">locations</span><span class="p">]</span>
     <span class="k">elif</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="n">labels</span> <span class="o">=</span> <span class="n">_require_string_array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+      <span class="n">labels</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;string&quot;</span><span class="p">)</span>
       <span class="n">locations</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Must supply locations, labels, or both.&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">titles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="n">titles</span> <span class="o">=</span> <span class="n">_require_string_array</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-      <span class="n">titles</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">))</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="n">_broadcast_object</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">locations</span><span class="p">))</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_locations</span> <span class="o">=</span> <span class="n">locations</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="n">labels</span>
@@ -1232,11 +1237,18 @@
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_yprojection</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Axes2D.bars"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.bars">[docs]</a>  <span class="k">def</span> <span class="nf">bars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">along</span><span class="o">=</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="s">&quot;stacked&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add traditional vertical bar(s) to the axes.</span>
+    <span class="sd">&quot;&quot;&quot;Add stacked bars to the axes.</span>
+
+<span class="sd">    Conceptually, the input to this command is an :math:`M \\times N` matrix</span>
+<span class="sd">    containing :math:`M` obserations and :math:`N` features.  If the `baseline` parameter</span>
+<span class="sd">    is None, the :math:`N` features are assumed to be boundaries, and the resulting</span>
+<span class="sd">    mark will contain :math:`N-1` series (sets of stacked bars).  If the `baseline`</span>
+<span class="sd">    parameter is not None (the default), the :math:`N` features are treated as</span>
+<span class="sd">    magnitudes, and the resulting mark will contain :math:`N` series.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    a, b, c : array-like sets of coordinates</span>
+<span class="sd">    a, b, c : array-like series data.</span>
 <span class="sd">      If `a`, `b`, and `c` are provided, they specify the bar X coordinates,</span>
 <span class="sd">      bottom coordinates, and top coordinates respectively.  If only `a` and</span>
 <span class="sd">      `b` are provided, they specify the bar X coordinates and top coordinates,</span>
@@ -1245,26 +1257,29 @@
 <span class="sd">      coordinates ranging from [0, N), or a tuple containing bar heights and bar edges.</span>
 <span class="sd">      Note that this latter behavior allows you to pass the results from numpy.histogram()</span>
 <span class="sd">      directly to this function.</span>
+<span class="sd">    along : string, &quot;x&quot; or &quot;y&quot;, optional</span>
+<span class="sd">      Specify &quot;x&quot; (the default) for vertical bars, or &quot;y&quot; for horizontal bars.</span>
+<span class="sd">    baseline: array-like, &quot;stacked&quot;, &quot;symmetrical&quot;, &quot;wiggle&quot;, or None</span>
 <span class="sd">    fill : array-like set of colors, optional</span>
-<span class="sd">      Specify a single color for all the bars, one color per bar, or a per-bar</span>
-<span class="sd">      scalar value to be mapped to a color using the `palette` parameter.</span>
+<span class="sd">      Specify a single color for all bars, one color per series, or one color per bar.</span>
+<span class="sd">      Color values can be explicit RGBA colors, or scalar values to be mapped</span>
+<span class="sd">      to colors using the `palette` parameter.</span>
 <span class="sd">    palette : :class:`toyplot.color.Palette`, optional</span>
 <span class="sd">      Palette to be used for mapping scalar `fill` values to colors.  If</span>
 <span class="sd">      unspecified, a default palette is used.</span>
 <span class="sd">    opacity : array-like set of opacities, optional</span>
-<span class="sd">      Specify a single opacity for all the bars, or one opacity per bar.</span>
+<span class="sd">      Specify a single opacity for all bars, one opacity per series, or one opacity per bar.</span>
 <span class="sd">    width : array-like set of bar widths, optional</span>
-<span class="sd">      Specify a single width or collection of bar widths.  Note: when grouping bars</span>
-<span class="sd">      with :meth:`toyplot.BarMagnitudesMark.group`, this value will control the width of each</span>
-<span class="sd">      group of bars.</span>
+<span class="sd">      Specify a single width for all bars, or one width per observation.</span>
+<span class="sd">    title : array-like set of strings, optional</span>
+<span class="sd">      Specify a single title, one title per series, or one title per bar.</span>
 <span class="sd">    style : dict, optional</span>
-<span class="sd">      Collection of CSS styles to apply to the mark.  See</span>
-<span class="sd">      :class:`toyplot.BarMagnitudesMark` for a list of useful styles.</span>
+<span class="sd">      Collection of CSS styles to be applied globally.</span>
 <span class="sd">    id : string, optional</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    bars : :class:`toyplot.BarMagnitudesMark`</span>
+<span class="sd">    bars : :class:`toyplot.BarBoundariesMark` or :class:`toyplot.BarMagnitudesMark`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">baseline</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -1450,10 +1465,18 @@
       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span> <span class="c"># baseline is not None</span>
       <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">b</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">_require_scalar_matrix</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+          <span class="n">series</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">b</span><span class="p">,))</span>
+        <span class="k">elif</span> <span class="n">b</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+          <span class="n">series</span> <span class="o">=</span> <span class="n">b</span>
         <span class="n">position</span> <span class="o">=</span> <span class="n">_require_scalar_vector</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
       <span class="k">else</span><span class="p">:</span>
-        <span class="n">series</span> <span class="o">=</span> <span class="n">_require_scalar_matrix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&quot;float64&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+          <span class="n">series</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">a</span><span class="p">,))</span>
+        <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+          <span class="n">series</span> <span class="o">=</span> <span class="n">a</span>
         <span class="n">position</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
       <span class="n">default_color</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fill_colors</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>

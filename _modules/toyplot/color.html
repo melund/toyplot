@@ -70,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#palettes">Palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#filled-regions">Filled Regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#barplots">Barplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#plots-revisited">Plots Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#scatterplots">Scatterplots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#markers">Markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorial.html#rendering">Rendering</a></li>
@@ -172,8 +173,10 @@
   <span class="k">else</span><span class="p">:</span>
     <span class="n">array</span> <span class="o">=</span> <span class="n">_require_color</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
 
-  <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="k">return</span> <span class="n">array</span>
+  <span class="c"># As a special-case, allow a vector with shape M to be matched-up with an M x 1 matrix.</span>
+  <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Palette"><a class="viewcode-back" href="../../toyplot.color.html#toyplot.color.Palette">[docs]</a><span class="k">class</span> <span class="nc">Palette</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Storage for a collection of related color values.</span>

@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#palettes">Palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#filled-regions">Filled Regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#barplots">Barplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#plots-revisited">Plots Revisited</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#scatterplots">Scatterplots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#markers">Markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#rendering">Rendering</a></li>
@@ -282,12 +283,18 @@ as <a class="reference internal" href="#toyplot.Canvas.axes" title="toyplot.Canv
 <dl class="method">
 <dt id="toyplot.Axes2D.bars">
 <tt class="descclassname">Axes2D.</tt><tt class="descname">bars</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>along='x'</em>, <em>baseline='stacked'</em>, <em>fill=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>width=0.8</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.bars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.bars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add traditional vertical bar(s) to the axes.</p>
+<dd><p>Add stacked bars to the axes.</p>
+<p>Conceptually, the input to this command is an <span class="math">\(M \times N\)</span> matrix
+containing <span class="math">\(M\)</span> obserations and <span class="math">\(N\)</span> features.  If the <cite>baseline</cite> parameter
+is None, the <span class="math">\(N\)</span> features are assumed to be boundaries, and the resulting
+mark will contain <span class="math">\(N-1\)</span> series (sets of stacked bars).  If the <cite>baseline</cite>
+parameter is not None (the default), the <span class="math">\(N\)</span> features are treated as
+magnitudes, and the resulting mark will contain <span class="math">\(N\)</span> series.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b, c</strong> : array-like sets of coordinates</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b, c</strong> : array-like series data.</p>
 <blockquote>
 <div><p>If <cite>a</cite>, <cite>b</cite>, and <cite>c</cite> are provided, they specify the bar X coordinates,
 bottom coordinates, and top coordinates respectively.  If only <cite>a</cite> and
@@ -298,10 +305,16 @@ coordinates ranging from [0, N), or a tuple containing bar heights and bar edges
 Note that this latter behavior allows you to pass the results from numpy.histogram()
 directly to this function.</p>
 </div></blockquote>
+<p><strong>along</strong> : string, &#8220;x&#8221; or &#8220;y&#8221;, optional</p>
+<blockquote>
+<div><p>Specify &#8220;x&#8221; (the default) for vertical bars, or &#8220;y&#8221; for horizontal bars.</p>
+</div></blockquote>
+<p><strong>baseline: array-like, &#8220;stacked&#8221;, &#8220;symmetrical&#8221;, &#8220;wiggle&#8221;, or None</strong> :</p>
 <p><strong>fill</strong> : array-like set of colors, optional</p>
 <blockquote>
-<div><p>Specify a single color for all the bars, one color per bar, or a per-bar
-scalar value to be mapped to a color using the <cite>palette</cite> parameter.</p>
+<div><p>Specify a single color for all bars, one color per series, or one color per bar.
+Color values can be explicit RGBA colors, or scalar values to be mapped
+to colors using the <cite>palette</cite> parameter.</p>
 </div></blockquote>
 <p><strong>palette</strong> : <a class="reference internal" href="toyplot.color.html#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a>, optional</p>
 <blockquote>
@@ -310,23 +323,24 @@ unspecified, a default palette is used.</p>
 </div></blockquote>
 <p><strong>opacity</strong> : array-like set of opacities, optional</p>
 <blockquote>
-<div><p>Specify a single opacity for all the bars, or one opacity per bar.</p>
+<div><p>Specify a single opacity for all bars, one opacity per series, or one opacity per bar.</p>
 </div></blockquote>
 <p><strong>width</strong> : array-like set of bar widths, optional</p>
 <blockquote>
-<div><p>Specify a single width or collection of bar widths.  Note: when grouping bars
-with <tt class="xref py py-meth docutils literal"><span class="pre">toyplot.BarMagnitudesMark.group()</span></tt>, this value will control the width of each
-group of bars.</p>
+<div><p>Specify a single width for all bars, or one width per observation.</p>
+</div></blockquote>
+<p><strong>title</strong> : array-like set of strings, optional</p>
+<blockquote>
+<div><p>Specify a single title, one title per series, or one title per bar.</p>
 </div></blockquote>
 <p><strong>style</strong> : dict, optional</p>
 <blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.BarMagnitudesMark" title="toyplot.BarMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarMagnitudesMark</span></tt></a> for a list of useful styles.</p>
+<div><p>Collection of CSS styles to be applied globally.</p>
 </div></blockquote>
 <p><strong>id</strong> : string, optional</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>bars</strong> : <a class="reference internal" href="#toyplot.BarMagnitudesMark" title="toyplot.BarMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarMagnitudesMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>bars</strong> : <a class="reference internal" href="#toyplot.BarBoundariesMark" title="toyplot.BarBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarBoundariesMark</span></tt></a> or <a class="reference internal" href="#toyplot.BarMagnitudesMark" title="toyplot.BarMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarMagnitudesMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -948,14 +962,19 @@ result AnimationFrame.</p>
 <em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">ExplicitTickLocator</tt><big>(</big><em>locations=None</em>, <em>labels=None</em>, <em>titles=None</em>, <em>format='{:g}'</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#ExplicitTickLocator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.ExplicitTickLocator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Explicitly specify a collection of tick locations and labels for an axis.</p>
+<p>You must specify the set of locations, the set of labels, or both.  If you
+only specify locations, the labels will be generated using a formatting
+string.  If you only specify labels, the locations will default to integers
+in the range $[0, n)$.  The latter behavior is especially useful for
+categorical axes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>locations</strong> : sequence of tick locations</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>locations</strong> : sequence of tick locations (numbers), optional</p>
 <p><strong>labels</strong> : sequence of tick labels (strings), optional</p>
-<p><strong>format</strong> : format string used to generate labels from tick locations, optional</p>
-<p class="last"><strong>titles</strong> : sequence of tick titles (strings), optional</p>
+<p><strong>titles</strong> : sequence of tick titles (strings), optional</p>
+<p class="last"><strong>format</strong> : format string used to generate labels from tick locations, optional</p>
 </td>
 </tr>
 </tbody>
@@ -1081,8 +1100,8 @@ domain.</p>
 <em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">PlotMark</tt><big>(</big><em>along</em>, <em>position</em>, <em>series</em>, <em>stroke</em>, <em>stroke_width</em>, <em>stroke_opacity</em>, <em>marker</em>, <em>size</em>, <em>fill</em>, <em>opacity</em>, <em>title</em>, <em>style</em>, <em>mstyle</em>, <em>mlstyle</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#PlotMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.PlotMark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a></p>
 <p>Plot multiple bivariate data series using lines and/or markers.</p>
-<p>Do not create PlotMark instances directly.  Use factory methods such
-as <a class="reference internal" href="#toyplot.Axes2D.plot" title="toyplot.Axes2D.plot"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Axes2D.plot()</span></tt></a> instead.</p>
+<p>Do not create PlotMark instances directly.  Use factory methods such as
+<a class="reference internal" href="#toyplot.Axes2D.plot" title="toyplot.Axes2D.plot"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Axes2D.plot()</span></tt></a> and <a class="reference internal" href="#toyplot.Axes2D.scatterplot" title="toyplot.Axes2D.scatterplot"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Axes2D.scatterplot()</span></tt></a> instead.</p>
 </dd></dl>
 
 <dl class="class">
