@@ -16,6 +16,8 @@ Welcome to Toyplot, the kid-sized plotting toolkit for Python with grownup-sized
 * Create the best possible data graphics "out-of-the-box", maximizing data ink and minimizing chartjunk.
 * Provide a clean, minimalist interface that scientists and engineers will love.
 
+Read more about our ideas for Toyplot and scientific publishing :ref:`here <ethos>`.
+
 Documentation
 =============
 

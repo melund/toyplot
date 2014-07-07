@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toyplot.png module &mdash; Toyplot 0.1.0 documentation</title>
+  <title>The Toyplot Ethos &mdash; Toyplot 0.1.0 documentation</title>
   
 
   
@@ -29,9 +29,8 @@
 
   
     <link rel="top" title="Toyplot 0.1.0 documentation" href="index.html"/>
-        <link rel="up" title="Toyplot Backends" href="backends.html"/>
-        <link rel="next" title="toyplot.ps module" href="toyplot.ps.html"/>
-        <link rel="prev" title="toyplot.pdf module" href="toyplot.pdf.html"/> 
+        <link rel="next" title="Installing Toyplot" href="installation.html"/>
+        <link rel="prev" title="Welcome!" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -59,7 +58,7 @@
         
         
             <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">The Toyplot Ethos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Toyplot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
@@ -90,11 +89,11 @@
 <li class="toctree-l2"><a class="reference internal" href="hacking.html#building-the-documentation">Building the Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="reference.html">The Toyplot Reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reference.html">The Toyplot Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="toyplot.html">toyplot module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toyplot.color.html">toyplot.color module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toyplot.color.css.html">toyplot.color.css module</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="backends.html">Toyplot Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backends.html">Toyplot Backends</a></li>
 </ul>
 </li>
 </ul>
@@ -120,14 +119,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-          <li><a href="reference.html">The Toyplot Reference</a> &raquo;</li>
-      
-          <li><a href="backends.html">Toyplot Backends</a> &raquo;</li>
-      
-    <li>toyplot.png module</li>
+    <li>The Toyplot Ethos</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/toyplot.png.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/ethos.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -135,85 +130,38 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-toyplot.png">
-<span id="toyplot-png-module"></span><h1>toyplot.png module<a class="headerlink" href="#module-toyplot.png" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="toyplot.png.render">
-<tt class="descclassname">toyplot.png.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>fobj=None</em>, <em>scale=1.0</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render" title="Permalink to this definition">¶</a></dt>
-<dd><p>Render the PNG bitmap representation of a canvas.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>canvas</strong> : <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a></p>
-<blockquote>
-<div><p>Canvas to be rendered.</p>
-</div></blockquote>
-<p><strong>fobj</strong> : file-like object or string, optional</p>
-<blockquote>
-<div><p>The file to write.  Use a string filepath to write data directly to disk.
-If <cite>None</cite> (the default), the PNG data will be returned to the caller
-instead.</p>
-</div></blockquote>
-<p><strong>scale</strong> : number, optional</p>
-<blockquote>
-<div><p>Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>png</strong> : PNG image data, or <cite>None</cite></p>
-<blockquote class="last">
-<div><p>PNG representation of <cite>canvas</cite>, or <cite>None</cite> if the caller specifies the
-<cite>fobj</cite> parameter.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>The output PNG is rendered using an SVG representation of the canvas
-generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.render" title="toyplot.svg.render"><tt class="xref py py-func docutils literal"><span class="pre">toyplot.svg.render()</span></tt></a>.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="toyplot.png.render_frames">
-<tt class="descclassname">toyplot.png.</tt><tt class="descname">render_frames</tt><big>(</big><em>canvas</em>, <em>scale=1.0</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render_frames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render_frames" title="Permalink to this definition">¶</a></dt>
-<dd><p>Render a canvas as a sequence of PNG images.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>canvas</strong> : <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a></p>
-<blockquote>
-<div><p>Canvas to be rendered.</p>
-</div></blockquote>
-<p><strong>scale</strong> : number, optional</p>
-<blockquote>
-<div><p>Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>frames</strong> : Python generator expression that returns each PNG image in the sequence.</p>
-<blockquote class="last">
-<div><p>The caller must iterate over the returned frames and is responsible for all
-subsequent processing, including disk I/O, video compression, etc.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>The output PNG images are rendered using an SVG representation of the canvas
-generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.render" title="toyplot.svg.render"><tt class="xref py py-func docutils literal"><span class="pre">toyplot.svg.render()</span></tt></a>.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">frame</span><span class="p">,</span> <span class="n">png</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toyplot</span><span class="o">.</span><span class="n">cairo</span><span class="o">.</span><span class="n">render_png_frames</span><span class="p">(</span><span class="n">canvas</span><span class="p">)):</span>
-<span class="gp">... </span>  <span class="nb">open</span><span class="p">(</span><span class="s">&quot;frame-</span><span class="si">%s</span><span class="s">.png&quot;</span> <span class="o">%</span> <span class="n">frame</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">png</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
+  <a class="reference internal image-reference" href="_images/toyplot.png" id="ethos"><img alt="_images/toyplot.png" class="align-right" id="ethos" src="_images/toyplot.png" style="width: 200px;" /></a>
+<div class="section" id="the-toyplot-ethos">
+<h1>The Toyplot Ethos<a class="headerlink" href="#the-toyplot-ethos" title="Permalink to this headline">¶</a></h1>
+<p>What began as a quick workaround to reduce the size of animations in IPython
+notebooks has become Toyplot, &#8220;the kid-sized plotting toolkit for Python with
+grownup-sized goals&#8221;.  In a nutshell, we think that scientists and engineers
+should expect more from their plots: more interaction, more reproducibility,
+greater clarity, and better aesthetics.</p>
+<p>We especially feel that, in an age of ubiquitous electronic media and the web,
+it makes little sense to publish using media (such as PDF) designed to mimic
+the limitations of static paper.  Toyplot embraces the tools of the web - SVG,
+HTML, and Javascript - as its primary medium, so we can make useful new
+interactions part of the everyday experiences of data graphic users.  Because
+we&#8217;re passionate about publishing and sharing results, Toyplot graphics are
+completely self-contained and embeddable, without the need for a server.  All
+of the Toyplot graphics you see in these pages are live and interactive,
+despite the fact that they were created offline in an IPython notebook and
+passed through several publishing steps on the way to becoming our
+documentation.</p>
+<p>By interactivity we mean the obvious stuff of course, such as zooming and
+panning.  But beyond that, Toyplot has the beginnings of interactive data
+cursors that display quantities of interest and descriptive statistics while
+hovering over the data.  When it comes to reproducibility, access to data can
+be key.  Since the data is already implicitly embedded in a Toyplot graphic, we
+thought: why not make it easy to export, so the viewer can work with it
+themselves?  That&#8217;s why Toyplot has a context menu for exporting the raw data from a
+figure in CSV format.</p>
+<p>And while we&#8217;re at it, shouldn&#8217;t we have a plotting library that fully embraces
+the best principles for clarity and aesthetics that have been established over
+the past two decades?  Toyplot has beautiful color palettes and sensible
+default styling that minimizes chartjunk and maximizes data ink out of the box,
+not as addons.</p>
 </div>
 
 
@@ -222,10 +170,10 @@ generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="toyplot.ps.html" class="btn btn-neutral float-right" title="toyplot.ps module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installing Toyplot"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="toyplot.pdf.html" class="btn btn-neutral" title="toyplot.pdf module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
