@@ -525,7 +525,7 @@ title as a tooltip.</p>
 
 <dl class="method">
 <dt id="toyplot.Axes2D.rect">
-<tt class="descclassname">Axes2D.</tt><tt class="descname">rect</tt><big>(</big><em>x1</em>, <em>x2</em>, <em>y1</em>, <em>y2</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.rect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.rect" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Axes2D.</tt><tt class="descname">rect</tt><big>(</big><em>a</em>, <em>b</em>, <em>c</em>, <em>d</em>, <em>along='x'</em>, <em>fill=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={'stroke': 'none'}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.rect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.rect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -862,34 +862,6 @@ more than one cell.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="toyplot.Canvas.rect">
-<tt class="descname">rect</tt><big>(</big><em>bounds=None</em>, <em>rect=None</em>, <em>corner=None</em>, <em>grid=None</em>, <em>gutter=50</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.rect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.rect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a rectangle to the canvas.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.RectMark" title="toyplot.RectMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.RectMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>rect</strong> : <a class="reference internal" href="#toyplot.RectMark" title="toyplot.RectMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.RectMark</span></tt></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="toyplot.Canvas.text">
 <tt class="descname">text</tt><big>(</big><em>x</em>, <em>y</em>, <em>text</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add text to the canvas.</p>
@@ -1120,11 +1092,11 @@ domain.</p>
 
 <dl class="class">
 <dt id="toyplot.RectMark">
-<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">RectMark</tt><big>(</big><em>x1</em>, <em>x2</em>, <em>y1</em>, <em>y2</em>, <em>title</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#RectMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.RectMark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">RectMark</tt><big>(</big><em>along</em>, <em>series</em>, <em>fill</em>, <em>opacity</em>, <em>title</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#RectMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.RectMark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a></p>
-<p>Render an axis-aligned rectangle.</p>
+<p>Plot axis-aligned rectangles.</p>
 <p>Do not create RectMark instances directly.  Use factory methods such as
-<a class="reference internal" href="#toyplot.Canvas.rect" title="toyplot.Canvas.rect"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Canvas.rect()</span></tt></a> instead.</p>
+<a class="reference internal" href="#toyplot.Axes2D.rect" title="toyplot.Axes2D.rect"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Axes2D.rect()</span></tt></a> instead.</p>
 </dd></dl>
 
 <dl class="class">

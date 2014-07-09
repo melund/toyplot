@@ -25,14 +25,14 @@ despite the fact that they were created offline in an IPython notebook and
 passed through several publishing steps on the way to becoming our
 documentation.
 
-By interactivity we mean the obvious stuff of course, such as zooming and
-panning.  But beyond that, Toyplot has the beginnings of interactive data
-cursors that display quantities of interest and descriptive statistics while
-hovering over the data.  When it comes to reproducibility, access to data can
-be key.  Since the data is already implicitly embedded in a Toyplot graphic, we
-thought: why not make it easy to export, so the viewer can work with it
-themselves?  That's why Toyplot has a context menu for exporting the raw data from a
-figure in CSV format.
+Interactivity includes obvious things such as zooming and panning.  But beyond
+that, Toyplot is exploring efficient animation that doesn't impact the quality
+of the graphic, along with interactive data cursors that display quantities of
+interest and descriptive statistics while hovering over the data.  And since
+the data is already implicitly embedded in a graphic, we thought: for
+reproducibility, why not make it easy to export, so the viewer can work with it
+themselves?  That's why Toyplot has a context menu for exporting raw data
+from a figure in CSV format.
 
 And while we're at it, shouldn't we have a plotting library that fully embraces
 the best principles for clarity and aesthetics that have been established over
