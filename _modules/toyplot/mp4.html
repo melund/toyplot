@@ -138,8 +138,15 @@
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">toyplot.png</span>
+
+<span class="k">def</span> <span class="nf">_require_ffmpeg</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;PATH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&quot;ffmpeg&quot;</span><span class="p">)):</span>
+      <span class="k">return</span>
+  <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;An ffmpeg executable is required.&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.mp4.html#toyplot.mp4.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Render a canvas as an MPEG-4 video.</span>
@@ -171,6 +178,8 @@
 <span class="sd">  ...   print &quot;Writing frame %s&quot; % frame</span>
 <span class="sd">  ... toyplot.mp4.render(canvas, &quot;test.mp4&quot;, progress=callback)</span>
 <span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">_require_ffmpeg</span><span class="p">()</span>
+
   <span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s">&quot;ffmpeg&quot;</span><span class="p">,</span>
     <span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;image2pipe&quot;</span><span class="p">,</span>

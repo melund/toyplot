@@ -560,12 +560,13 @@
 <span class="s">                datum.style.setProperty(key, datum_style[3][key]);</span>
 <span class="s">            }</span>
 <span class="s">          }</span>
-<span class="s">          else if(type == &quot;set-mark-text&quot;)</span>
+<span class="s">          else if(type == &quot;set-datum-text&quot;)</span>
 <span class="s">          {</span>
 <span class="s">            for(var i = 0; i != type_changes.length; ++i)</span>
 <span class="s">            {</span>
-<span class="s">              var mark_text = type_changes[i];</span>
-<span class="s">              get_item(mark_text[0]).textContent = mark_text[1];</span>
+<span class="s">              var datum_text = type_changes[i];</span>
+<span class="s">              var datum = get_item(datum_text[0]).querySelectorAll(&quot;.toyplot-Series&quot;)[datum_text[1]].querySelectorAll(&quot;.toyplot-Datum&quot;)[datum_text[2]];</span>
+<span class="s">              datum.textContent = datum_text[3];</span>
 <span class="s">            }</span>
 <span class="s">          }</span>
 <span class="s">        }</span>
