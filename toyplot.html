@@ -143,7 +143,6 @@
 <p>Do not create AnimationFrame instances yourself, an instance of
 AnimationFrame is automatically created by <a class="reference internal" href="#toyplot.Canvas.animate" title="toyplot.Canvas.animate"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Canvas.animate()</span></tt></a>
 or <a class="reference internal" href="#toyplot.Canvas.time" title="toyplot.Canvas.time"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Canvas.time()</span></tt></a> and passed to your callback.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.AnimationFrame.duration">
 <tt class="descname">duration</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/toyplot.html#AnimationFrame.duration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.AnimationFrame.duration" title="Permalink to this definition">¶</a></dt>
@@ -164,9 +163,10 @@ or <a class="reference internal" href="#toyplot.Canvas.time" title="toyplot.Canv
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mark</strong> : <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a> instance</p>
-<p><strong>index</strong> : zero-based index of the datum to modify</p>
-<p class="last"><strong>style</strong> : dict containing CSS style information</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mark</strong> (<a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a> instance) &#8211; </li>
+<li><strong>index</strong> (<em>zero-based index of the datum to modify</em>) &#8211; </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -181,9 +181,7 @@ or <a class="reference internal" href="#toyplot.Canvas.time" title="toyplot.Canv
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mark</strong> : <a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> instance</p>
-<p class="last"><strong>value</strong> : string</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> instance) &#8211; </td>
 </tr>
 </tbody>
 </table>
@@ -197,9 +195,7 @@ or <a class="reference internal" href="#toyplot.Canvas.time" title="toyplot.Canv
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mark</strong> : <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a> instance</p>
-<p class="last"><strong>style</strong> : dict containing CSS style information</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mark</strong> (<a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a> instance) &#8211; </td>
 </tr>
 </tbody>
 </table>
@@ -220,47 +216,40 @@ or <a class="reference internal" href="#toyplot.Canvas.time" title="toyplot.Canv
 <p>Standard two-dimensional Cartesian coordinate system.</p>
 <p>Do not create Axes2D instances directly.  Use factory methods such
 as <a class="reference internal" href="#toyplot.Canvas.axes" title="toyplot.Canvas.axes"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Canvas.axes()</span></tt></a> instead.</p>
-<p class="rubric">Methods</p>
 <dl class="class">
 <dt id="toyplot.Axes2D.AxisHelper">
 <em class="property">class </em><tt class="descname">AxisHelper</tt><big>(</big><em>show</em>, <em>label</em>, <em>label_style</em>, <em>min</em>, <em>max</em>, <em>tick_length</em>, <em>tick_locator</em>, <em>tick_angle</em>, <em>scale</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.AxisHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.AxisHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.CoordinatesHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">CoordinatesHelper</tt><big>(</big><em>show</em>, <em>xmin_range</em>, <em>xmax_range</em>, <em>ymin_range</em>, <em>ymax_range</em>, <em>style</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.CoordinatesHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.CoordinatesHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.CoordinatesLabelHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">CoordinatesLabelHelper</tt><big>(</big><em>style</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.CoordinatesLabelHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.CoordinatesLabelHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.DomainHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">DomainHelper</tt><big>(</big><em>min</em>, <em>max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.DomainHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.DomainHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.LabelHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">LabelHelper</tt><big>(</big><em>label</em>, <em>style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.LabelHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.LabelHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.PerTickHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">PerTickHelper</tt><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.Axes2D.PerTickHelper.styles">
 <tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
@@ -272,21 +261,18 @@ as <a class="reference internal" href="#toyplot.Canvas.axes" title="toyplot.Canv
 <dt id="toyplot.Axes2D.SpineHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">SpineHelper</tt><a class="reference internal" href="_modules/toyplot.html#Axes2D.SpineHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.SpineHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.TickLabelsHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">TickLabelsHelper</tt><big>(</big><em>angle</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.TickLabelsHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.TickLabelsHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.Axes2D.TicksHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">TicksHelper</tt><big>(</big><em>length</em>, <em>locator</em>, <em>angle</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.TicksHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.TicksHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="method">
@@ -327,48 +313,28 @@ bars by passing an optional vector of <span class="math">\(M\)</span> bar positi
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b, c</strong> : array-like series data.</p>
-<p><strong>along</strong> : string, &#8220;x&#8221; or &#8220;y&#8221;, optional</p>
-<blockquote>
-<div><p>Specify &#8220;x&#8221; (the default) for vertical bars, or &#8220;y&#8221; for horizontal bars.</p>
-</div></blockquote>
-<p><strong>baseline: array-like, &#8220;stacked&#8221;, &#8220;symmetrical&#8221;, &#8220;wiggle&#8221;, or None</strong></p>
-<p><strong>fill</strong> : array-like set of colors, optional</p>
-<blockquote>
-<div><p>Specify a single color for all bars, one color per series, or one color per bar.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b, c</strong> (<em>a,</em>) &#8211; </li>
+<li><strong>along</strong> (<em>string, &#8220;x&#8221; or &#8220;y&#8221;, optional</em>) &#8211; Specify &#8220;x&#8221; (the default) for vertical bars, or &#8220;y&#8221; for horizontal bars.</li>
+<li><strong>baseline</strong> (<em>array-like, &#8220;stacked&#8221;, &#8220;symmetrical&#8221;, &#8220;wiggle&#8221;, or None</em>) &#8211; </li>
+<li><strong>fill</strong> (<em>array-like set of colors, optional</em>) &#8211; Specify a single color for all bars, one color per series, or one color per bar.
 Color values can be explicit toyplot colors, or scalar values to be mapped
-to colors using the <cite>colormap</cite> or <cite>palette</cite> parameter.</p>
-</div></blockquote>
-<p><strong>colormap</strong> : <tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Map</span></tt>, optional</p>
-<blockquote>
-<div><p>Colormap to be used for mapping scalar <cite>fill</cite> values to colors.  If
-unspecified, a default <a class="reference internal" href="toyplot.color.html#toyplot.color.LinearMap" title="toyplot.color.LinearMap"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.LinearMap</span></tt></a> is used.</p>
-</div></blockquote>
-<p><strong>palette</strong> : <a class="reference internal" href="toyplot.color.html#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a>, optional</p>
-<blockquote>
-<div><p>Palette to be used for mapping scalar <cite>fill</cite> values to colors.  If
-unspecified, a default <a class="reference internal" href="toyplot.color.html#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a> is used.</p>
-</div></blockquote>
-<p><strong>opacity</strong> : array-like set of opacities, optional</p>
-<blockquote>
-<div><p>Specify a single opacity for all bars, one opacity per series, or one opacity per bar.</p>
-</div></blockquote>
-<p><strong>width</strong> : array-like set of bar widths, optional</p>
-<blockquote>
-<div><p>Specify a single width for all bars, or one width per observation.</p>
-</div></blockquote>
-<p><strong>title</strong> : array-like set of strings, optional</p>
-<blockquote>
-<div><p>Specify a single title, one title per series, or one title per bar.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to be applied globally.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+to colors using the <cite>colormap</cite> or <cite>palette</cite> parameter.</li>
+<li><strong>colormap</strong> (<tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Map</span></tt>, optional) &#8211; Colormap to be used for mapping scalar <cite>fill</cite> values to colors.  If
+unspecified, a default <a class="reference internal" href="toyplot.color.html#toyplot.color.LinearMap" title="toyplot.color.LinearMap"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.LinearMap</span></tt></a> is used.</li>
+<li><strong>palette</strong> (<a class="reference internal" href="toyplot.color.html#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a>, optional) &#8211; Palette to be used for mapping scalar <cite>fill</cite> values to colors.  If
+unspecified, a default <a class="reference internal" href="toyplot.color.html#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a> is used.</li>
+<li><strong>opacity</strong> (<em>array-like set of opacities, optional</em>) &#8211; Specify a single opacity for all bars, one opacity per series, or one opacity per bar.</li>
+<li><strong>width</strong> (<em>array-like set of bar widths, optional</em>) &#8211; Specify a single width for all bars, or one width per observation.</li>
+<li><strong>title</strong> (<em>array-like set of strings, optional</em>) &#8211; Specify a single title, one title per series, or one title per bar.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to be applied globally.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>bars</strong> : <a class="reference internal" href="#toyplot.BarBoundariesMark" title="toyplot.BarBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarBoundariesMark</span></tt></a> or <a class="reference internal" href="#toyplot.BarMagnitudesMark" title="toyplot.BarMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarMagnitudesMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>bars</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.BarBoundariesMark" title="toyplot.BarBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarBoundariesMark</span></tt></a> or <a class="reference internal" href="#toyplot.BarMagnitudesMark" title="toyplot.BarMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.BarMagnitudesMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -388,29 +354,24 @@ unspecified, a default <a class="reference internal" href="toyplot.color.html#to
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b, c</strong> : array-like sets of coordinates</p>
-<blockquote>
-<div><p>If <cite>a</cite>, <cite>b</cite>, and <cite>c</cite> are provided, they specify the X coordinates, bottom
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b, c</strong> (<em>a,</em>) &#8211; If <cite>a</cite>, <cite>b</cite>, and <cite>c</cite> are provided, they specify the X coordinates, bottom
 coordinates, and top coordinates of the region respectively.  If only <cite>a</cite>
 and <cite>b</cite> are provided, they specify the top coordinates and bottom
 coordinates, with the X coordinates ranging from [0, N).  If only <cite>a</cite> is
 provided, it specifies the top of the region, with the bottom along the
-origin and the X coordinates ranging from [0, N).</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.FillBoundariesMark" title="toyplot.FillBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillBoundariesMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+origin and the X coordinates ranging from [0, N).</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the mark.  See
+<a class="reference internal" href="#toyplot.FillBoundariesMark" title="toyplot.FillBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillBoundariesMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>mark</strong> : <a class="reference internal" href="#toyplot.FillBoundariesMark" title="toyplot.FillBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillBoundariesMark</span></tt></a> or <a class="reference internal" href="#toyplot.FillMagnitudesMark" title="toyplot.FillMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillMagnitudesMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>mark</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.FillBoundariesMark" title="toyplot.FillBoundariesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillBoundariesMark</span></tt></a> or <a class="reference internal" href="#toyplot.FillMagnitudesMark" title="toyplot.FillMagnitudesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.FillMagnitudesMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -427,24 +388,19 @@ left to right regardless of the axes size.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>y</strong> : array-like set of Y coordinates</p>
-<blockquote>
-<div><p>One horizontal line will be drawn through each Y coordinate provided.</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> (<em>array-like set of Y coordinates</em>) &#8211; One horizontal line will be drawn through each Y coordinate provided.</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the mark.  See
+<a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>hlines</strong> : <a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hlines</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -459,57 +415,43 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>marks</strong> : sequence of marks to add to the legend</p>
-<blockquote>
-<div><p>Each mark to be displayed in the legend should be specified using either
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>marks</strong> (<em>sequence of marks to add to the legend</em>) &#8211; Each mark to be displayed in the legend should be specified using either
 a (label, mark) tuple or a (label, mark, style) tuple.  Each label should
 be the human-readable text to be displayed next to the mark.  The mark
 can be a string value &#8220;line&#8221; or &#8220;rect&#8221;, a marker string &#8220;o&#8221;, &#8220;s&#8221;, &#8220;^&#8221;,
-or an actual intance of <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a>.</p>
-</div></blockquote>
-<p><strong>bounds</strong> : (xmin, xmax, ymin, ymax) tuple, optional</p>
-<blockquote>
-<div><p>Use the bounds property to position / size the legend by specifying the
+or an actual intance of <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a>.</li>
+<li><strong>bounds</strong> (<em>(xmin, xmax, ymin, ymax) tuple, optional</em>) &#8211; Use the bounds property to position / size the legend by specifying the
 position of each of its boundaries.  The boundaries may be specified in
 absolute drawing units, or as a percentage of the axes width / height
-using strings that end with &#8220;%&#8221;.</p>
-</div></blockquote>
-<p><strong>rect</strong> : (x, y, width, height) tuple, optional</p>
-<blockquote>
-<div><p>Use the rect property to position / size the legend by specifying its
+using strings that end with &#8220;%&#8221;.</li>
+<li><strong>rect</strong> (<em>(x, y, width, height) tuple, optional</em>) &#8211; Use the rect property to position / size the legend by specifying its
 upper-left-hand corner, width, and height.  Each parameter may be specified
 in absolute drawing units, or as a percentage of the axes width / height
-using strings that end with &#8220;%&#8221;.</p>
-</div></blockquote>
-<p><strong>corner</strong> : (corner, width, height, inset) tuple, optional</p>
-<blockquote>
-<div><p>Use the corner property to position / size the legend by specifying its
+using strings that end with &#8220;%&#8221;.</li>
+<li><strong>corner</strong> (<em>(corner, width, height, inset) tuple, optional</em>) &#8211; Use the corner property to position / size the legend by specifying its
 width and height, plus an inset from a corner of the axes.  Allowed
 corner values are &#8220;top-left&#8221;, &#8220;top&#8221;, &#8220;top-right&#8221;, &#8220;right&#8221;,
 &#8220;bottom-right&#8221;, &#8220;bottom&#8221;, &#8220;bottom-left&#8221;, and &#8220;left&#8221;.  The width and
 height may be specified in absolute drawing units, or as a percentage of
 the axes width / height using strings that end with &#8220;%&#8221;.  The inset is
-specified in absolute drawing units.</p>
-</div></blockquote>
-<p><strong>grid</strong> : (rows, columns, index) tuple, or (rows, columns, i, j) tuple, or (rows, columns, i, rowspan, j, columnspan) tuple, optional</p>
-<blockquote>
-<div><p>Use the grid property to position / size the legend using a collection of
+specified in absolute drawing units.</li>
+<li><strong>grid</strong> (<em>(rows, columns, index) tuple, or (rows, columns, i, j) tuple, or (rows, columns, i, rowspan, j, columnspan) tuple, optional</em>) &#8211; Use the grid property to position / size the legend using a collection of
 grid cells filling the axes.  Specify the number of rows and columns in
 the grid, then specify either a zero-based cell index (which runs in
 left-ot-right, top-to-bottom order), a pair of i, j cell coordinates, or
 a set of i, column-span, j, row-span coordinates so the legend can cover
-more than one cell.</p>
-</div></blockquote>
-<p><strong>gutter</strong> : size of the gutter around grid cells, optional</p>
-<blockquote>
-<div><p>Specifies the amount of empty space to leave between grid cells When using the
-<cite>grid</cite> parameter to position the legend.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<p><strong>id</strong> : string, optional</p>
+more than one cell.</li>
+<li><strong>gutter</strong> (<em>size of the gutter around grid cells, optional</em>) &#8211; Specifies the amount of empty space to leave between grid cells When using the
+<cite>grid</cite> parameter to position the legend.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>legend</strong> : <a class="reference internal" href="#toyplot.LegendMark" title="toyplot.LegendMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.LegendMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>legend</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.LegendMark" title="toyplot.LegendMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.LegendMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -524,26 +466,21 @@ more than one cell.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b</strong> : array-like sets of coordinates</p>
-<blockquote>
-<div><p>If <cite>a</cite> and <cite>b</cite> are provided, they specify the X coordinates and Y
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b</strong> (<em>a,</em>) &#8211; If <cite>a</cite> and <cite>b</cite> are provided, they specify the X coordinates and Y
 coordinates of each point in the plot.  If only <cite>a</cite> is provided, it
-specifies the Y coordinates, and the X coordinates will range from [0, N).</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply across all datums.  See
-<a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+specifies the Y coordinates, and the X coordinates will range from [0, N).</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply across all datums.  See
+<a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>plot</strong> : <a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>plot</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -563,26 +500,21 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b</strong> : array-like sets of coordinates</p>
-<blockquote>
-<div><p>If <cite>a</cite> and <cite>b</cite> are provided, they specify the X coordinates and Y
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b</strong> (<em>a,</em>) &#8211; If <cite>a</cite> and <cite>b</cite> are provided, they specify the X coordinates and Y
 coordinates of each point in the plot.  If only <cite>a</cite> is provided, it
-specifies the Y coordinates, and the X coordinates will range from [0, N).</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply across all datums.  See
-<a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+specifies the Y coordinates, and the X coordinates will range from [0, N).</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply across all datums.  See
+<a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>plot</strong> : <a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>plot</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.PlotMark" title="toyplot.PlotMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.PlotMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -597,27 +529,20 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b</strong> : float</p>
-<blockquote>
-<div><p>Coordinates of the text anchor.</p>
-</div></blockquote>
-<p><strong>text</strong> : string</p>
-<blockquote>
-<div><p>The text to be displayed.</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b</strong> (<em>a,</em>) &#8211; Coordinates of the text anchor.</li>
+<li><strong>text</strong> (<em>string</em>) &#8211; The text to be displayed.</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the mark.  See
+<a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>text</strong> : <a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>text</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -634,24 +559,19 @@ top to bottom regardless of the axes size.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>y</strong> : array-like set of Y coordinates</p>
-<blockquote>
-<div><p>One horizontal line will be drawn through each Y coordinate provided.</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
-<p><strong>id</strong> : string, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> (<em>array-like set of Y coordinates</em>) &#8211; One horizontal line will be drawn through each Y coordinate provided.</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the mark.  See
+<a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>hlines</strong> : <a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hlines</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.AxisLinesMark" title="toyplot.AxisLinesMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AxisLinesMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -696,13 +616,10 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>count</strong> : number of ticks to generate, optional</p>
-<p class="last"><strong>format</strong> : format string used to generate labels from tick locations, optional</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<em>number of ticks to generate, optional</em>) &#8211; </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.BasicTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#BasicTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.BasicTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -719,23 +636,13 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>width</strong> : integer, optional</p>
-<blockquote>
-<div><p>Width of the canvas in drawing units.</p>
-</div></blockquote>
-<p><strong>height</strong> : integer, optional</p>
-<blockquote>
-<div><p>Height of the canvas in drawing units.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the canvas.</p>
-</div></blockquote>
-<p><strong>autorender</strong> : string or <cite>False</cite>, optional</p>
-<blockquote class="last">
-<div><p>Specify the name of a backend to use for autorendering or <cite>False</cite> to
-disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<em>integer, optional</em>) &#8211; Width of the canvas in drawing units.</li>
+<li><strong>height</strong> (<em>integer, optional</em>) &#8211; Height of the canvas in drawing units.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the canvas.</li>
+<li><strong>autorender</strong> (string or <cite>False</cite>, optional) &#8211; Specify the name of a backend to use for autorendering or <cite>False</cite> to
+disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -745,7 +652,6 @@ disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#82
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">canvas</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;background-color&quot;</span><span class="p">:</span><span class="s">&quot;yellow&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.Canvas.animate">
 <tt class="descname">animate</tt><big>(</big><em>frames</em>, <em>callback=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.animate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.animate" title="Permalink to this definition">¶</a></dt>
@@ -754,23 +660,19 @@ disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#82
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>frames</strong> : integer, tuple, or sequence</p>
-<blockquote>
-<div><p>Pass a sequence of values that specify the time (in seconds) of the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>frames</strong> (<em>integer, tuple, or sequence</em>) &#8211; Pass a sequence of values that specify the time (in seconds) of the
 beginning / end of each frame.  Note that the number of frames will be the
 length of the sequence minus one.  Alternatively, you can pass a 2-tuple
 containing the number of frames and the frame rate in frames-per-second.
 Finally, you may simply specify the number of frames, in which case the
-rate will default to 30 frames-per-second.</p>
-</div></blockquote>
-<p><strong>callback</strong> : function</p>
-<blockquote class="last">
-<div><p>The callback function will be called once per frame, and will receive an
+rate will default to 30 frames-per-second.</li>
+<li><strong>callback</strong> (<em>function</em>) &#8211; The callback function will be called once per frame, and will receive an
 instance of <a class="reference internal" href="#toyplot.AnimationFrame" title="toyplot.AnimationFrame"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AnimationFrame</span></tt></a> as its sole argument.  The
 callback function can access the frame number, time, and duration from the
 state object, and should use the other methods provided by the state object
-to make changes to the canvas.</p>
-</div></blockquote>
+to make changes to the canvas.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -791,12 +693,8 @@ shown using any of the rendering backends.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>method</strong> : string or <cite>False</cite></p>
-<blockquote class="last">
-<div><p>Specify the name of a backend to use for autorendering or <cite>False</cite> to
-disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (string or <cite>False</cite>) &#8211; Specify the name of a backend to use for autorendering or <cite>False</cite> to
+disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</td>
 </tr>
 </tbody>
 </table>
@@ -810,22 +708,18 @@ disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#82
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>xlabel</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable label for the X axis.</p>
-</div></blockquote>
-<p><strong>ylabel</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable label for the Y axis.</p>
-</div></blockquote>
-<p><strong>xmin, xmax, ymin, ymax</strong> : float, optional</p>
-<blockquote>
-<div><p>Used to explicitly override the axis domain (normally, the domain is
-implicitly defined by any marks added to the axes).</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xlabel</strong> (<em>string, optional</em>) &#8211; Human-readable label for the X axis.</li>
+<li><strong>ylabel</strong> (<em>string, optional</em>) &#8211; Human-readable label for the Y axis.</li>
+<li><strong>xmax, ymin, ymax</strong> (<em>xmin,</em>) &#8211; Used to explicitly override the axis domain (normally, the domain is
+implicitly defined by any marks added to the axes).</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>axes</strong> : <a class="reference internal" href="#toyplot.Axes2D" title="toyplot.Axes2D"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Axes2D</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>axes</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.Axes2D" title="toyplot.Axes2D"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Axes2D</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -840,57 +734,43 @@ implicitly defined by any marks added to the axes).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>marks</strong> : sequence of marks to add to the legend</p>
-<blockquote>
-<div><p>Each mark to be displayed in the legend should be specified using either
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>marks</strong> (<em>sequence of marks to add to the legend</em>) &#8211; Each mark to be displayed in the legend should be specified using either
 a (label, mark) tuple or a (label, mark, style) tuple.  Each label should
 be the human-readable text to be displayed next to the mark.  The mark
 can be a string value &#8220;line&#8221; or &#8220;rect&#8221;, a marker string &#8220;o&#8221;, &#8220;s&#8221;, &#8220;^&#8221;,
-or an actual intance of <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a>.</p>
-</div></blockquote>
-<p><strong>bounds</strong> : (xmin, xmax, ymin, ymax) tuple, optional</p>
-<blockquote>
-<div><p>Use the bounds property to position / size the legend by specifying the
+or an actual intance of <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a>.</li>
+<li><strong>bounds</strong> (<em>(xmin, xmax, ymin, ymax) tuple, optional</em>) &#8211; Use the bounds property to position / size the legend by specifying the
 position of each of its boundaries.  The boundaries may be specified in
 absolute drawing units, or as a percentage of the canvas width / height
-using strings that end with &#8220;%&#8221;.</p>
-</div></blockquote>
-<p><strong>rect</strong> : (x, y, width, height) tuple, optional</p>
-<blockquote>
-<div><p>Use the rect property to position / size the legend by specifying its
+using strings that end with &#8220;%&#8221;.</li>
+<li><strong>rect</strong> (<em>(x, y, width, height) tuple, optional</em>) &#8211; Use the rect property to position / size the legend by specifying its
 upper-left-hand corner, width, and height.  Each parameter may be specified
 in absolute drawing units, or as a percentage of the canvas width / height
-using strings that end with &#8220;%&#8221;.</p>
-</div></blockquote>
-<p><strong>corner</strong> : (corner, width, height, inset) tuple, optional</p>
-<blockquote>
-<div><p>Use the corner property to position / size the legend by specifying its
+using strings that end with &#8220;%&#8221;.</li>
+<li><strong>corner</strong> (<em>(corner, width, height, inset) tuple, optional</em>) &#8211; Use the corner property to position / size the legend by specifying its
 width and height, plus an inset from a corner of the canvas.  Allowed
 corner values are &#8220;top-left&#8221;, &#8220;top&#8221;, &#8220;top-right&#8221;, &#8220;right&#8221;,
 &#8220;bottom-right&#8221;, &#8220;bottom&#8221;, &#8220;bottom-left&#8221;, and &#8220;left&#8221;.  The width and
 height may be specified in absolute drawing units, or as a percentage of
 the canvas width / height using strings that end with &#8220;%&#8221;.  The inset is
-specified in absolute drawing units.</p>
-</div></blockquote>
-<p><strong>grid</strong> : (rows, columns, index) tuple, or (rows, columns, i, j) tuple, or (rows, columns, i, rowspan, j, columnspan) tuple, optional</p>
-<blockquote>
-<div><p>Use the grid property to position / size the legend using a collection of
+specified in absolute drawing units.</li>
+<li><strong>grid</strong> (<em>(rows, columns, index) tuple, or (rows, columns, i, j) tuple, or (rows, columns, i, rowspan, j, columnspan) tuple, optional</em>) &#8211; Use the grid property to position / size the legend using a collection of
 grid cells filling the canvas.  Specify the number of rows and columns in
 the grid, then specify either a zero-based cell index (which runs in
 left-ot-right, top-to-bottom order), a pair of i, j cell coordinates, or
 a set of i, column-span, j, row-span coordinates so the legend can cover
-more than one cell.</p>
-</div></blockquote>
-<p><strong>gutter</strong> : size of the gutter around grid cells, optional</p>
-<blockquote>
-<div><p>Specifies the amount of empty space to leave between grid cells When using the
-<cite>grid</cite> parameter to position the legend.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<p><strong>id</strong> : string, optional</p>
+more than one cell.</li>
+<li><strong>gutter</strong> (<em>size of the gutter around grid cells, optional</em>) &#8211; Specifies the amount of empty space to leave between grid cells When using the
+<cite>grid</cite> parameter to position the legend.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>legend</strong> : <a class="reference internal" href="#toyplot.LegendMark" title="toyplot.LegendMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.LegendMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>legend</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.LegendMark" title="toyplot.LegendMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.LegendMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -905,28 +785,21 @@ more than one cell.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y</strong> : float</p>
-<blockquote>
-<div><p>Coordinates of the text anchor in canvas drawing units.  Note that canvas
-Y coordinates increase from top-to-bottom.</p>
-</div></blockquote>
-<p><strong>text</strong> : string</p>
-<blockquote>
-<div><p>The text to be displayed.</p>
-</div></blockquote>
-<p><strong>title</strong> : string, optional</p>
-<blockquote>
-<div><p>Human-readable title for the mark.  The SVG / HTML backends render the
-title as a tooltip.</p>
-</div></blockquote>
-<p><strong>style</strong> : dict, optional</p>
-<blockquote>
-<div><p>Collection of CSS styles to apply to the mark.  See
-<a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> for a list of useful styles.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> (<em>x,</em>) &#8211; Coordinates of the text anchor in canvas drawing units.  Note that canvas
+Y coordinates increase from top-to-bottom.</li>
+<li><strong>text</strong> (<em>string</em>) &#8211; The text to be displayed.</li>
+<li><strong>title</strong> (<em>string, optional</em>) &#8211; Human-readable title for the mark.  The SVG / HTML backends render the
+title as a tooltip.</li>
+<li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the mark.  See
+<a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a> for a list of useful styles.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>text</strong> : <a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>text</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.TextMark" title="toyplot.TextMark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.TextMark</span></tt></a></p>
 </td>
 </tr>
 </tbody>
@@ -941,23 +814,19 @@ title as a tooltip.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>begin</strong> : scalar</p>
-<blockquote>
-<div><p>Specify the frame start time (in seconds).</p>
-</div></blockquote>
-<p><strong>end</strong> : scalar</p>
-<blockquote>
-<div><p>Specify the frame end time (in seconds).</p>
-</div></blockquote>
-<p><strong>index</strong> : integer, optional</p>
-<blockquote>
-<div><p>Specify an index for this frame.  Note that the index is simply a
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>begin</strong> (<em>scalar</em>) &#8211; Specify the frame start time (in seconds).</li>
+<li><strong>end</strong> (<em>scalar</em>) &#8211; Specify the frame end time (in seconds).</li>
+<li><strong>index</strong> (<em>integer, optional</em>) &#8211; Specify an index for this frame.  Note that the index is simply a
 convenience for code that depends on accessing the index from the
-result AnimationFrame.</p>
-</div></blockquote>
+result AnimationFrame.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>frame</strong> : <a class="reference internal" href="#toyplot.AnimationFrame" title="toyplot.AnimationFrame"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AnimationFrame</span></tt></a> instance.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>frame</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.AnimationFrame" title="toyplot.AnimationFrame"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.AnimationFrame</span></tt></a> instance.</p>
 </td>
 </tr>
 </tbody>
@@ -980,15 +849,15 @@ categorical axes.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>locations</strong> : sequence of tick locations (numbers), optional</p>
-<p><strong>labels</strong> : sequence of tick labels (strings), optional</p>
-<p><strong>titles</strong> : sequence of tick titles (strings), optional</p>
-<p class="last"><strong>format</strong> : format string used to generate labels from tick locations, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>locations</strong> (<em>sequence of tick locations (numbers), optional</em>) &#8211; </li>
+<li><strong>labels</strong> (<em>sequence of tick labels (strings), optional</em>) &#8211; </li>
+<li><strong>titles</strong> (<em>sequence of tick titles (strings), optional</em>) &#8211; </li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.ExplicitTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#ExplicitTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.ExplicitTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1005,20 +874,15 @@ categorical axes.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>count</strong> : desired number of ticks</p>
-<blockquote>
-<div><p>Note that the algorithm may produce fewer ticks than requested.</p>
-</div></blockquote>
-<p><strong>steps</strong> : prioritized list of &#8220;nice&#8221; values to use for generating ticks.</p>
-<p><strong>only_inside</strong> : boolean</p>
-<blockquote class="last">
-<div><p>If set to <cite>True</cite>, only ticks inside the axis domain will be generated.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>count</strong> (<em>desired number of ticks</em>) &#8211; Note that the algorithm may produce fewer ticks than requested.</li>
+<li><strong>steps</strong> (<em>prioritized list of &#8220;nice&#8221; values to use for generating ticks.</em>) &#8211; </li>
+<li><strong>only_inside</strong> (<em>boolean</em>) &#8211; If set to <cite>True</cite>, only ticks inside the axis domain will be generated.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.ExtendedTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#ExtendedTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.ExtendedTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1055,11 +919,8 @@ domain.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> : number of ticks to generate</td>
-</tr>
 </tbody>
 </table>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.HeckbertTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#HeckbertTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.HeckbertTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1087,7 +948,6 @@ domain.</p>
 <em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">NegativeLogTickLocator</tt><big>(</big><em>base=10</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#NegativeLogTickLocator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.NegativeLogTickLocator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Generate ticks that are evenly spaced on a logarithmic scale, when the entire domain is negative.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.NegativeLogTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#NegativeLogTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.NegativeLogTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1109,7 +969,6 @@ domain.</p>
 <em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">PositiveLogTickLocator</tt><big>(</big><em>base=10</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#PositiveLogTickLocator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.PositiveLogTickLocator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Generate ticks that are evenly spaced on a logarithmic scale, when the entire domain is positive.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.PositiveLogTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#PositiveLogTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.PositiveLogTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1131,7 +990,6 @@ domain.</p>
 <em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">SymmetricLogTickLocator</tt><big>(</big><em>base=10</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#SymmetricLogTickLocator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.SymmetricLogTickLocator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Generate ticks that are evenly spaced on a logarithmic scale, when the domain straddles zero.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.SymmetricLogTickLocator.ticks">
 <tt class="descname">ticks</tt><big>(</big><em>domain_min</em>, <em>domain_max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#SymmetricLogTickLocator.ticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.SymmetricLogTickLocator.ticks" title="Permalink to this definition">¶</a></dt>
@@ -1155,26 +1013,22 @@ domain.</p>
 <p>Displays a one-dimensional mapping from values to colors.</p>
 <p>Do not create VColorbarMark instances directly.  Use factory methods such
 as <a class="reference internal" href="#toyplot.Axes2D.colorbar" title="toyplot.Axes2D.colorbar"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.Axes2D.colorbar()</span></tt></a> instead.</p>
-<p class="rubric">Methods</p>
 <dl class="class">
 <dt id="toyplot.VColorBarMark.DomainHelper">
 <em class="property">class </em><tt class="descname">DomainHelper</tt><big>(</big><em>min</em>, <em>max</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.DomainHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.DomainHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.VColorBarMark.LabelHelper">
 <em class="property">class </em><tt class="descclassname">VColorBarMark.</tt><tt class="descname">LabelHelper</tt><big>(</big><em>label</em>, <em>style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.LabelHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.LabelHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.VColorBarMark.PerTickHelper">
 <em class="property">class </em><tt class="descclassname">VColorBarMark.</tt><tt class="descname">PerTickHelper</tt><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.VColorBarMark.PerTickHelper.styles">
 <tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
@@ -1186,14 +1040,12 @@ as <a class="reference internal" href="#toyplot.Axes2D.colorbar" title="toyplot.
 <dt id="toyplot.VColorBarMark.TickLabelsHelper">
 <em class="property">class </em><tt class="descclassname">VColorBarMark.</tt><tt class="descname">TickLabelsHelper</tt><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.TickLabelsHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.TickLabelsHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="toyplot.VColorBarMark.TicksHelper">
 <em class="property">class </em><tt class="descclassname">VColorBarMark.</tt><tt class="descname">TicksHelper</tt><big>(</big><em>length</em>, <em>locator</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.TicksHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.TicksHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 </dd></dl>
 
 </dd></dl>

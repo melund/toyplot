@@ -149,32 +149,24 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>canvas</strong> : <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a></p>
-<blockquote>
-<div><p>The canvas to be rendered.</p>
-</div></blockquote>
-<p><strong>fobj</strong> : file-like object or string, optional</p>
-<blockquote>
-<div><p>The file to write.  Use a string filepath to write data directly to disk.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; The canvas to be rendered.</li>
+<li><strong>fobj</strong> (<em>file-like object or string, optional</em>) &#8211; The file to write.  Use a string filepath to write data directly to disk.
 If <cite>None</cite> (the default), the SVG tree will be returned to the caller
-instead.</p>
-</div></blockquote>
-<p><strong>animation</strong> : boolean, optional</p>
-<blockquote>
-<div><p>If <cite>True</cite>, return a representation of the changes to be made to the SVG
-tree for animation.</p>
-</div></blockquote>
+instead.</li>
+<li><strong>animation</strong> (<em>boolean, optional</em>) &#8211; If <cite>True</cite>, return a representation of the changes to be made to the SVG
+tree for animation.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>svg</strong> : xml.etree.ElementTree.Element or <cite>None</cite></p>
-<blockquote>
-<div><p>SVG representation of <cite>canvas</cite>, as a DOM tree, or <cite>None</cite> if the caller
-specifies the <cite>fobj</cite> parameter.</p>
-</div></blockquote>
-<p><strong>changes</strong> : JSON-compatible data structure, or <cite>None</cite></p>
-<blockquote class="last">
-<div><p>JSON-compatible representation of the animated changes to <cite>canvas</cite>.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>svg</strong> (xml.etree.ElementTree.Element or <cite>None</cite>) &#8211;
+SVG representation of <cite>canvas</cite>, as a DOM tree, or <cite>None</cite> if the caller
+specifies the <cite>fobj</cite> parameter.</li>
+<li><strong>changes</strong> (JSON-compatible data structure, or <cite>None</cite>) &#8211;
+JSON-compatible representation of the animated changes to <cite>canvas</cite>.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>

@@ -144,18 +144,13 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>palette</strong> : an instance of <a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a></p>
-<blockquote class="last">
-<div><p>Defines the set of colors used by the map.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>palette</strong> (an instance of <a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a>) &#8211; Defines the set of colors used by the map.</td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
 <p>Categorical maps are displayed as a collection of color swatches when viewed
 in an IPython notebook.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.color.CategoricalMap.color">
 <tt class="descname">color</tt><big>(</big><em>index</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.color" title="Permalink to this definition">¶</a></dt>
@@ -164,16 +159,13 @@ in an IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : nonnegative integer</p>
-<blockquote>
-<div><p>Specifies the index of the color to retrieve.  Note that the palette
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>nonnegative integer</em>) &#8211; Specifies the index of the color to retrieve.  Note that the palette
 repeats infinitely, so any nonnegative integer value will return a color
-from the palette.</p>
-</div></blockquote>
-</td>
+from the palette.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>color</strong> : toyplot color.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">toyplot color.</td>
 </tr>
 </tbody>
 </table>
@@ -190,9 +182,9 @@ a color from the palette.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> : array-like collection of nonnegative integers</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong> : array of toyplot colors with the same shape as <cite>values</cite>.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array of toyplot colors with the same shape as <cite>values</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -206,16 +198,13 @@ a color from the palette.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : nonnegative integer</p>
-<blockquote>
-<div><p>Specifies the index of the color to retrieve.  Note that the palette
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>nonnegative integer</em>) &#8211; Specifies the index of the color to retrieve.  Note that the palette
 repeats infinitely, so any nonnegative integer value will return a color
-from the palette.</p>
-</div></blockquote>
-</td>
+from the palette.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>css</strong> : CSS color string.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">CSS color string.</td>
 </tr>
 </tbody>
 </table>
@@ -232,24 +221,19 @@ from the palette.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>low, high</strong> : toyplot colors, optional</p>
-<blockquote>
-<div><p>Defines the colors used to represent low and high extremes.</p>
-</div></blockquote>
-<p><strong>domain_min, domain_max</strong> : map domain, optional</p>
-<blockquote class="last">
-<div><p>Values within the map domain are mapped to the colors in the underlying
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>high</strong> (<em>low,</em>) &#8211; Defines the colors used to represent low and high extremes.</li>
+<li><strong>domain_max</strong> (<em>domain_min,</em>) &#8211; Values within the map domain are mapped to the colors in the underlying
 palette.  Values outside the domain are clamped to the minimum / maximum
 domain values.  If unspecified, the domain will be computed on-the-fly
-every time <a class="reference internal" href="#toyplot.color.DivergingMap.colors" title="toyplot.color.DivergingMap.colors"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.color.DivergingMap.colors()</span></tt></a> is called.</p>
-</div></blockquote>
+every time <a class="reference internal" href="#toyplot.color.DivergingMap.colors" title="toyplot.color.DivergingMap.colors"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.color.DivergingMap.colors()</span></tt></a> is called.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
 <p>Diverging maps generate a color preview when viewed in an IPython notebook.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.color.DivergingMap.color">
 <tt class="descname">color</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.color" title="Permalink to this definition">¶</a></dt>
@@ -258,9 +242,9 @@ every time <a class="reference internal" href="#toyplot.color.DivergingMap.color
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> : scalar value</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong> : toyplot color</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">toyplot color</td>
 </tr>
 </tbody>
 </table>
@@ -274,9 +258,9 @@ every time <a class="reference internal" href="#toyplot.color.DivergingMap.color
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> : array-like collection of scalar values</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong> : array of toyplot colors with the same shape as <cite>values</cite></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array of toyplot colors with the same shape as <cite>values</cite></td>
 </tr>
 </tbody>
 </table>
@@ -290,9 +274,9 @@ every time <a class="reference internal" href="#toyplot.color.DivergingMap.color
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> : scalar value</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong> : CSS color string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">CSS color string</td>
 </tr>
 </tbody>
 </table>
@@ -309,17 +293,13 @@ every time <a class="reference internal" href="#toyplot.color.DivergingMap.color
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>palette</strong> : an instance of <a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a></p>
-<blockquote>
-<div><p>Defines the set of colors used by the map.</p>
-</div></blockquote>
-<p><strong>domain_min, domain_max</strong> : map domain, optional</p>
-<blockquote class="last">
-<div><p>Values within the map domain are mapped to the colors in the underlying
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>palette</strong> (an instance of <a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a>) &#8211; Defines the set of colors used by the map.</li>
+<li><strong>domain_max</strong> (<em>domain_min,</em>) &#8211; Values within the map domain are mapped to the colors in the underlying
 palette.  Values outside the domain are clamped to the minimum / maximum
 domain values.  If unspecified, the domain will be computed on-the-fly
-every time <a class="reference internal" href="#toyplot.color.LinearMap.colors" title="toyplot.color.LinearMap.colors"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.color.LinearMap.colors()</span></tt></a> is called.</p>
-</div></blockquote>
+every time <a class="reference internal" href="#toyplot.color.LinearMap.colors" title="toyplot.color.LinearMap.colors"><tt class="xref py py-meth docutils literal"><span class="pre">toyplot.color.LinearMap.colors()</span></tt></a> is called.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -327,7 +307,6 @@ every time <a class="reference internal" href="#toyplot.color.LinearMap.colors" 
 <p class="rubric">Notes</p>
 <p>Linear maps are displayed as a color preview of their domain when viewed in
 an IPython notebook.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.color.LinearMap.color">
 <tt class="descname">color</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.color" title="Permalink to this definition">¶</a></dt>
@@ -336,9 +315,9 @@ an IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> : scalar value</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong> : toyplot color</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">toyplot color</td>
 </tr>
 </tbody>
 </table>
@@ -352,9 +331,9 @@ an IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> : array-like collection of scalar values</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>colors</strong> : array of toyplot colors with the same shape as <cite>values</cite>.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array of toyplot colors with the same shape as <cite>values</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -368,9 +347,9 @@ an IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> : scalar value</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong> : CSS color string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">CSS color string</td>
 </tr>
 </tbody>
 </table>
@@ -387,17 +366,13 @@ an IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>colors</strong> : sequence of color values, optional</p>
-<blockquote>
-<div><p>Specifies the list of color values to store in the palette.  Each color may
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>colors</strong> (<em>sequence of color values, optional</em>) &#8211; Specifies the list of color values to store in the palette.  Each color may
 be a CSS color string, a toyplot color, a sequence of three RGB values, or
 a sequence of four RGBA values.  If <cite>colors</cite> is unspecified, the palette
-will be initialized with a default collection of colors.</p>
-</div></blockquote>
-<p><strong>reverse</strong> : boolean, optional</p>
-<blockquote class="last">
-<div><p>If <cite>True</cite>, the values in <cite>colors</cite> will be stored in reverse order.</p>
-</div></blockquote>
+will be initialized with a default collection of colors.</li>
+<li><strong>reverse</strong> (<em>boolean, optional</em>) &#8211; If <cite>True</cite>, the values in <cite>colors</cite> will be stored in reverse order.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -406,7 +381,6 @@ will be initialized with a default collection of colors.</p>
 <p>You can iterate over the colors in a Palette using normal Python iteration.</p>
 <p>Palettes are displayed as a collection of color swatches when viewed in an
 IPython notebook.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="toyplot.color.Palette.color">
 <tt class="descname">color</tt><big>(</big><em>index</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#Palette.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.Palette.color" title="Permalink to this definition">¶</a></dt>
@@ -415,14 +389,11 @@ IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : integer</p>
-<blockquote>
-<div><p>Specifies the index of the color to retrieve.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>integer</em>) &#8211; Specifies the index of the color to retrieve.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>color</strong> : toyplot color.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>color</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">toyplot color.</td>
 </tr>
 </tbody>
 </table>
@@ -436,14 +407,11 @@ IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : integer</p>
-<blockquote>
-<div><p>Specifies the index of the color to retrieve.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>integer</em>) &#8211; Specifies the index of the color to retrieve.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>css</strong> : CSS RGBA color string.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>css</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">CSS RGBA color string.</td>
 </tr>
 </tbody>
 </table>
@@ -459,23 +427,37 @@ IPython notebook.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
-<blockquote>
-<div><p>The name of the ColorBrewer 2.0 palette.</p>
-</div></blockquote>
-<p><strong>count</strong> : integer, optional</p>
-<blockquote>
-<div><p>The number of values in the palette.  If unspecified, the named palette
-with the largest number of values is returned.</p>
-</div></blockquote>
-<p><strong>reverse</strong> : boolean, optional</p>
-<blockquote>
-<div><p>If <cite>True</cite>, the values in <cite>palette</cite> will be stored in reverse order.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; The name of the ColorBrewer 2.0 palette.</li>
+<li><strong>count</strong> (<em>integer, optional</em>) &#8211; The number of values in the palette.  If unspecified, the named palette
+with the largest number of values is returned.</li>
+<li><strong>reverse</strong> (<em>boolean, optional</em>) &#8211; If <cite>True</cite>, the values in <cite>palette</cite> will be stored in reverse order.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>palette</strong> : <a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>palette</strong></p>
 </td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#toyplot.color.Palette" title="toyplot.color.Palette"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.Palette</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="toyplot.color.diverging">
+<tt class="descclassname">toyplot.color.</tt><tt class="descname">diverging</tt><big>(</big><em>name</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#diverging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.diverging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a named DivergingMap instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>string</em>) &#8211; The name of the DivergingMap</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>map</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#toyplot.color.DivergingMap" title="toyplot.color.DivergingMap"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.color.DivergingMap</span></tt></a></td>
 </tr>
 </tbody>
 </table>

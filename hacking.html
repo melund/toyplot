@@ -149,12 +149,14 @@ would like to be notified when Toyplot is released.</p>
 including its hard dependencies:</p>
 <ul class="simple">
 <li>Python 2.7 - <a class="reference external" href="http://python.org">http://python.org</a></li>
-<li>numpy - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
+<li>numpy 1.8.1 - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
+<li>colormath - <a class="reference external" href="https://github.com/gtaylor/python-colormath">https://github.com/gtaylor/python-colormath</a></li>
 </ul>
-<p>And you&#8217;re going to need the optional dependencies so you can run all the
+<p>And you&#8217;re going to need all of the optional dependencies so you can run the
 regression tests:</p>
 <ul class="simple">
-<li>cairo, pango, pangocairo - typically installed using pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
+<li>cairo, pango, pangocairo - typically installed as dependencies of pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
+<li>ffmpeg - <a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a> - required to generate MP4 videos.</li>
 </ul>
 <p>Lastly, you&#8217;ll need to install the tools required for Toyplot&#8217;s build, testing,
 coverage, and documentation:</p>
@@ -186,8 +188,8 @@ visualization, you&#8217;ll need to create a new <a class="reference internal" h
 there.  Then, you&#8217;ll create factory methods for creating instances of your
 new mark in <a class="reference internal" href="toyplot.html#toyplot.Axes2D" title="toyplot.Axes2D"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Axes2D</span></tt></a> and/or <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>.  Once
 you&#8217;ve done that, you&#8217;ll need to write code for rendering your new mark
-in <cite>toyplot/svg.py</cite>.  Then you&#8217;re done ... all of the other backends render
-based on the SVG representation.</p>
+in <cite>toyplot/svg.py</cite>.  That&#8217;s it ... all of the other backends are rendered
+from the SVG representation.</p>
 </div>
 <div class="section" id="running-regression-tests">
 <h2>Running Regression Tests<a class="headerlink" href="#running-regression-tests" title="Permalink to this headline">¶</a></h2>

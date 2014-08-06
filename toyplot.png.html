@@ -145,28 +145,22 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>canvas</strong> : <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a></p>
-<blockquote>
-<div><p>Canvas to be rendered.</p>
-</div></blockquote>
-<p><strong>fobj</strong> : file-like object or string, optional</p>
-<blockquote>
-<div><p>The file to write.  Use a string filepath to write data directly to disk.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; Canvas to be rendered.</li>
+<li><strong>fobj</strong> (<em>file-like object or string, optional</em>) &#8211; The file to write.  Use a string filepath to write data directly to disk.
 If <cite>None</cite> (the default), the PNG data will be returned to the caller
-instead.</p>
-</div></blockquote>
-<p><strong>scale</strong> : number, optional</p>
-<blockquote>
-<div><p>Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</p>
-</div></blockquote>
+instead.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
+control the pixel resolution of the output image.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>png</strong> : PNG image data, or <cite>None</cite></p>
-<blockquote class="last">
-<div><p>PNG representation of <cite>canvas</cite>, or <cite>None</cite> if the caller specifies the
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>png</strong> &#8211;
+PNG representation of <cite>canvas</cite>, or <cite>None</cite> if the caller specifies the
 <cite>fobj</cite> parameter.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">PNG image data, or <cite>None</cite></p>
 </td>
 </tr>
 </tbody>
@@ -184,22 +178,19 @@ generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>canvas</strong> : <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a></p>
-<blockquote>
-<div><p>Canvas to be rendered.</p>
-</div></blockquote>
-<p><strong>scale</strong> : number, optional</p>
-<blockquote>
-<div><p>Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; Canvas to be rendered.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
+control the pixel resolution of the output image.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>frames</strong> : Python generator expression that returns each PNG image in the sequence.</p>
-<blockquote class="last">
-<div><p>The caller must iterate over the returned frames and is responsible for all
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>frames</strong> &#8211;
+The caller must iterate over the returned frames and is responsible for all
 subsequent processing, including disk I/O, video compression, etc.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Python generator expression that returns each PNG image in the sequence.</p>
 </td>
 </tr>
 </tbody>

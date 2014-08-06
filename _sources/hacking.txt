@@ -23,12 +23,14 @@ First, if you haven't already, you'll need to install Toyplot from source,
 including its hard dependencies:
 
 * Python 2.7 - http://python.org
-* numpy - http://numpy.org
+* numpy 1.8.1 - http://numpy.org
+* colormath - https://github.com/gtaylor/python-colormath
 
-And you're going to need the optional dependencies so you can run all the
+And you're going to need all of the optional dependencies so you can run the
 regression tests:
 
-* cairo, pango, pangocairo - typically installed using pygtk - http://www.pygtk.org
+* cairo, pango, pangocairo - typically installed as dependencies of pygtk - http://www.pygtk.org
+* ffmpeg - https://www.ffmpeg.org - required to generate MP4 videos.
 
 Lastly, you'll need to install the tools required for Toyplot's build, testing,
 coverage, and documentation:
@@ -60,8 +62,8 @@ visualization, you'll need to create a new :class:`toyplot.Mark` derivative
 there.  Then, you'll create factory methods for creating instances of your
 new mark in :class:`toyplot.Axes2D` and/or :class:`toyplot.Canvas`.  Once
 you've done that, you'll need to write code for rendering your new mark
-in `toyplot/svg.py`.  Then you're done ... all of the other backends render
-based on the SVG representation.
+in `toyplot/svg.py`.  That's it ... all of the other backends are rendered
+from the SVG representation.
 
 Running Regression Tests
 ------------------------

@@ -150,6 +150,34 @@ be your first stop for installing Toyplot - using your package manager will
 make it easy to install Toyplot and its dependencies, keep them up-to-date, and
 even (gasp!) uninstall them cleanly.  If your package manager doesn&#8217;t support
 Toyplot yet, drop them a line and let them know you&#8217;d like them to add it!</p>
+<div class="section" id="macports-specific-instructions">
+<h3>MacPorts-Specific Instructions<a class="headerlink" href="#macports-specific-instructions" title="Permalink to this headline">¶</a></h3>
+<p>There isn&#8217;t a MacPorts port for Toyplot yet, but you can still use MacPorts
+to install Toyplot&#8217;s dependencies:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install python27
+$ sudo port select --set python python27
+$ sudo port install py27-numpy
+$ sudo port install py27-pygtk
+$ sudo port install ffmpeg
+$ sudo port install py27-pip
+$ sudo port select --set pip pip27
+$ sudo pip install colormath
+</pre></div>
+</div>
+<p>If you want to run regression tests / view test coverage:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install py27-nose
+$ sudo port install py27-coverage
+</pre></div>
+</div>
+<p>If you want to generate documentation:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install py27-ipython +notebook +parallel
+$ sudo port select --set sphinx py27-sphinx
+$ sudo port select --set ipython ipython27
+$ sudo pip install sphinx_rtd_theme
+$ sudo pip install sphinxcontrib-napoleon
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="using-pip-easy-install">
 <h2>Using Pip / Easy Install<a class="headerlink" href="#using-pip-easy-install" title="Permalink to this headline">¶</a></h2>
@@ -173,13 +201,16 @@ installed first:</p>
 <ul class="simple">
 <li>Python 2.7 - <a class="reference external" href="http://python.org">http://python.org</a></li>
 <li>numpy 1.8.1 - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
+<li>colormath - <a class="reference external" href="https://github.com/gtaylor/python-colormath">https://github.com/gtaylor/python-colormath</a></li>
 </ul>
-<p>If you want to generate PDF, PNG, Postscript, PDF, or MP4 versions of your Toyplot figures:</p>
+<p>You&#8217;ll need the following if you intend to generate PDF, PNG, Postscript, PDF,
+or MP4 versions of your Toyplot figures:</p>
 <ul class="simple">
-<li>cairo, pango, pangocairo - typically installed using pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
+<li>cairo, pango, pangocairo - typically installed as dependencies of pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
+<li>ffmpeg - <a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a> - required to generate MP4 videos.</li>
 </ul>
 <p>The following isn&#8217;t needed to run Toyplot once it&#8217;s installed, but you need it
-in order to run the setup script itself:</p>
+to run the setup script itself:</p>
 <ul class="simple">
 <li>setuptools - <a class="reference external" href="http://pythonhosted.org//setuptools">http://pythonhosted.org//setuptools</a></li>
 </ul>
@@ -189,6 +220,9 @@ $ cd toyplot
 $ python setup.py install
 </pre></div>
 </div>
+<p>The setup script copies Toyplot into your Python site-packages directory, and
+it&#8217;s ready to go.  Note that you may need root / sudo access to run setup.py,
+if you&#8217;re installing using a system-wide Python instance.</p>
 </div>
 </div>
 
