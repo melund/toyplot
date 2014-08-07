@@ -29,7 +29,8 @@ MacPorts-Specific Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There isn't a MacPorts port for Toyplot yet, but you can still use MacPorts
-to install Toyplot's dependencies::
+to install Toyplot's :ref:`dependencies<Toyplot Dependencies>` before installing
+:ref:`from source<From Source>`::
 
     $ sudo port install python27
     $ sudo port select --set python python27
@@ -67,29 +68,13 @@ or::
 
     $ easy_install toyplot
 
+.. _From Source:
+
 From Source
 -----------
 
 Finally, if you want to work with the latest, bleeding-edge Toyplot goodness,
-you can install it from source code, but you'll need to have its dependencies
-installed first:
-
-* Python 2.7 - http://python.org
-* numpy 1.8.1 - http://numpy.org
-* colormath - https://github.com/gtaylor/python-colormath
-
-You'll need the following if you intend to generate PDF, PNG, Postscript, PDF,
-or MP4 versions of your Toyplot figures:
-
-* cairo, pango, pangocairo - typically installed as dependencies of pygtk - http://www.pygtk.org
-* ffmpeg - https://www.ffmpeg.org - required to generate MP4 videos.
-
-The following isn't needed to run Toyplot once it's installed, but you need it
-to run the setup script itself:
-
-* setuptools - http://pythonhosted.org//setuptools
-
-Now, you're ready to install Toyplot::
+you can install it using the source code::
 
     $ git clone https://github.com/sandialabs/toyplot
     $ cd toyplot

@@ -8,10 +8,10 @@ The Toyplot Ethos
 =================
 
 What began as a quick workaround to reduce the size of animations in IPython
-notebooks has become Toyplot, "the kid-sized plotting toolkit for Python with
-grownup-sized goals".  In a nutshell, we think that scientists and engineers
-should expect more from their plots: more interaction, more reproducibility,
-greater clarity, and better aesthetics.
+quickly grew into Toyplot, "the kid-sized plotting toolkit with grownup-sized
+goals".  In a nutshell, we think that scientists and engineers should expect
+more from their plots: more interaction, more reproducibility, greater clarity,
+and better aesthetics.
 
 We especially feel that, in an age of ubiquitous electronic media and the web,
 it makes little sense to publish using media (such as PDF) designed to mimic
@@ -23,20 +23,22 @@ completely self-contained and embeddable, without the need for a server.  All
 of the Toyplot graphics you see in these pages are live and interactive,
 despite the fact that they were created offline in an IPython notebook and
 passed through several publishing steps on the way to becoming our
-documentation.
+documentation.  Of course, we provide backends to publish Toyplot figures
+to legacy formats including PNG, PDF, Postscript, and MP4.
 
 Interactivity includes obvious things such as zooming and panning.  But beyond
-that, Toyplot is exploring efficient animation that doesn't impact the quality
-of the graphic, along with interactive data cursors that display quantities of
-interest and descriptive statistics while hovering over the data.  And since
-the data is already implicitly embedded in a graphic, we thought: for
-reproducibility, why not make it easy to export, so the viewer can work with it
-themselves?  That's why Toyplot has a context menu for exporting raw data
-from a figure in CSV format.
+that, Toyplot is exploring ideas from efficient animation that doesn't impact
+the quality of the graphic to interactive data cursors that display quantities
+of interest and descriptive statistics by pointing at the figure.  And since
+the raw data is already implicitly embedded in a graphic, why not support
+reproducibility by making it easy to export, so the viewer can work with it
+themselves?  That's why Toyplot has a context menu to export raw data from a
+figure in CSV format.
 
-And while we're at it, shouldn't we have a plotting library that fully embraces
-the best principles for clarity and aesthetics that have been established over
-the past two decades?  Toyplot has beautiful color palettes and sensible
-default styling that minimizes chartjunk and maximizes data ink out of the box,
-not as addons.
+Last but definitely not least: Toyplot fully embraces principles and best
+practices for clarity and aesthetics in data graphics that are well-established
+by the visualization community, yet sadly lacking in contemporary plotting
+libraries.  Toyplot has beautiful color palettes and sensible default styling
+that minimize chartjunk and maximize data ink out of the box, not as
+afterthoughts or addons.
 

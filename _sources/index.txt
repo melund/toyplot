@@ -25,6 +25,7 @@ Documentation
    :maxdepth: 2
 
    ethos.rst
+   dependencies.rst
    installation.rst
    tutorial.rst
    hacking.rst

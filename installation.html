@@ -30,7 +30,7 @@
   
     <link rel="top" title="Toyplot 0.1.0 documentation" href="index.html"/>
         <link rel="next" title="The Toyplot Tutorial" href="tutorial.html"/>
-        <link rel="prev" title="The Toyplot Ethos" href="ethos.html"/> 
+        <link rel="prev" title="Toyplot Dependencies" href="dependencies.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -59,6 +59,7 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Toyplot Dependencies</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installing Toyplot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-your-os-package-manager">Using Your OS Package Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-pip-easy-install">Using Pip / Easy Install</a></li>
@@ -153,7 +154,8 @@ Toyplot yet, drop them a line and let them know you&#8217;d like them to add it!
 <div class="section" id="macports-specific-instructions">
 <h3>MacPorts-Specific Instructions<a class="headerlink" href="#macports-specific-instructions" title="Permalink to this headline">¶</a></h3>
 <p>There isn&#8217;t a MacPorts port for Toyplot yet, but you can still use MacPorts
-to install Toyplot&#8217;s dependencies:</p>
+to install Toyplot&#8217;s <a class="reference internal" href="dependencies.html#toyplot-dependencies"><em>dependencies</em></a> before installing
+<a class="reference internal" href="#from-source"><em>from source</em></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ sudo port install python27
 $ sudo port select --set python python27
 $ sudo port install py27-numpy
@@ -194,27 +196,9 @@ and its dependencies with:</p>
 </div>
 </div>
 <div class="section" id="from-source">
-<h2>From Source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>From Source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
 <p>Finally, if you want to work with the latest, bleeding-edge Toyplot goodness,
-you can install it from source code, but you&#8217;ll need to have its dependencies
-installed first:</p>
-<ul class="simple">
-<li>Python 2.7 - <a class="reference external" href="http://python.org">http://python.org</a></li>
-<li>numpy 1.8.1 - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
-<li>colormath - <a class="reference external" href="https://github.com/gtaylor/python-colormath">https://github.com/gtaylor/python-colormath</a></li>
-</ul>
-<p>You&#8217;ll need the following if you intend to generate PDF, PNG, Postscript, PDF,
-or MP4 versions of your Toyplot figures:</p>
-<ul class="simple">
-<li>cairo, pango, pangocairo - typically installed as dependencies of pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
-<li>ffmpeg - <a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a> - required to generate MP4 videos.</li>
-</ul>
-<p>The following isn&#8217;t needed to run Toyplot once it&#8217;s installed, but you need it
-to run the setup script itself:</p>
-<ul class="simple">
-<li>setuptools - <a class="reference external" href="http://pythonhosted.org//setuptools">http://pythonhosted.org//setuptools</a></li>
-</ul>
-<p>Now, you&#8217;re ready to install Toyplot:</p>
+you can install it using the source code:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ git clone https://github.com/sandialabs/toyplot
 $ cd toyplot
 $ python setup.py install
@@ -235,7 +219,7 @@ if you&#8217;re installing using a system-wide Python instance.</p>
         <a href="tutorial.html" class="btn btn-neutral float-right" title="The Toyplot Tutorial"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ethos.html" class="btn btn-neutral" title="The Toyplot Ethos"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dependencies.html" class="btn btn-neutral" title="Toyplot Dependencies"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

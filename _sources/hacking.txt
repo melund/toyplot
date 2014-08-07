@@ -19,35 +19,13 @@ Toyplot for Hackers
 Getting Started
 ---------------
 
-First, if you haven't already, you'll need to install Toyplot from source,
-including its hard dependencies:
-
-* Python 2.7 - http://python.org
-* numpy 1.8.1 - http://numpy.org
-* colormath - https://github.com/gtaylor/python-colormath
-
-And you're going to need all of the optional dependencies so you can run the
-regression tests:
-
-* cairo, pango, pangocairo - typically installed as dependencies of pygtk - http://www.pygtk.org
-* ffmpeg - https://www.ffmpeg.org - required to generate MP4 videos.
-
-Lastly, you'll need to install the tools required for Toyplot's build, testing,
-coverage, and documentation:
-
-* setuptools - http://pythonhosted.org//setuptools
-* nose - unit test framework - https://nose.readthedocs.org/en/latest/
-* coverage - code coverage module - http://nedbatchelder.com/code/coverage/
-* Sphinx - documentation builder - http://sphinx-doc.org
-* Sphinx readthedocs theme - https://github.com/snide/sphinx_rtd_theme
-* numpydocs - https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
-* IPython - http://ipython.org
-
-Now, you're ready to "install" Toyplot - but as a convenience, you'll want to use
-"develop mode".  Develop mode is a a feature provided by setuptools that links
-the Toyplot source code to the install directory instead of copying it ... that way
-you can edit the source code in your git sandbox, and you don't have to re-install
-it to test your changes::
+First, if you haven't already, you'll need to install Toyplot's
+:ref:`dependencies<Toyplot Dependencies>`.  Then, you'll be ready to "install"
+Toyplot - but as a convenience, you'll want to use "develop mode".  Develop
+mode is a a feature provided by setuptools that links the Toyplot source code
+to the install directory instead of copying it ... that way you can edit the
+source code in your git sandbox, and you don't have to re-install it to test
+your changes::
 
     $ git clone https://github.com/sandialabs/toyplot.git
     $ cd toyplot
@@ -56,12 +34,12 @@ it to test your changes::
 Code Walkthrough
 ----------------
 
-Most of toyplot's public API is located in `toyplot/__init__.py`, for most
+Most of toyplot's public API is located in `toyplot/__init__.py` ... for most
 contributations, that's where you'll start.  If you're adding a new type of
 visualization, you'll need to create a new :class:`toyplot.Mark` derivative
 there.  Then, you'll create factory methods for creating instances of your
 new mark in :class:`toyplot.Axes2D` and/or :class:`toyplot.Canvas`.  Once
-you've done that, you'll need to write code for rendering your new mark
+you've done that, you'll need to write code to render your new mark
 in `toyplot/svg.py`.  That's it ... all of the other backends are rendered
 from the SVG representation.
 
@@ -93,7 +71,7 @@ file.
 
 If you make changes that cause an existing test to fail, the failed SVG will
 be written to `tests/failed/test-name.svg`, so you can compare it against the
-reference SVG in `tests/reference/test-name.svg`.
+corresponding reference SVG in `tests/reference/test-name.svg`.
 
 Test Coverage
 -------------
@@ -114,5 +92,5 @@ Note that the tutorial documentation is written as an IPython notebook, so the
 docs/setup.py script requires IPython so it can convert the notebook into a
 restructured text file for inclusion with the rest of the documentation.
 
-Once the documentation is built, you can view it by opening `toyplot/docs/_build/html/index.html`
-in a web browser.
+Once the documentation is built, you can view it by opening
+`toyplot/docs/_build/html/index.html` in a web browser.

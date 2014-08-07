@@ -58,6 +58,7 @@
         
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../ethos.html">The Toyplot Ethos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dependencies.html">Toyplot Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing Toyplot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
@@ -371,23 +372,37 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="nb">min</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="nb">max</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="nb">min</span>
-      <span class="k">if</span> <span class="nb">max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="nb">max</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_min</span>
+    <span class="nd">@min.setter</span>
+<div class="viewcode-block" id="VColorBarMark.DomainHelper.min"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.DomainHelper.min">[docs]</a>    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span>
+    <span class="nd">@min.setter</span>
+<div class="viewcode-block" id="VColorBarMark.DomainHelper.max"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.DomainHelper.max">[docs]</a>    <span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="n">value</span>
+</div></div>
 <div class="viewcode-block" id="VColorBarMark.LabelHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.LabelHelper">[docs]</a>  <span class="k">class</span> <span class="nc">LabelHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{}):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">label</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;font-size&quot;</span><span class="p">:</span><span class="s">&quot;12px&quot;</span><span class="p">,</span> <span class="s">&quot;font-weight&quot;</span><span class="p">:</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;text-anchor&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">,</span> <span class="s">&quot;alignment-baseline&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">,</span> <span class="s">&quot;baseline-shift&quot;</span><span class="p">:</span><span class="s">&quot;-200%&quot;</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+    <span class="nd">@text.setter</span>
+<div class="viewcode-block" id="VColorBarMark.LabelHelper.text"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.LabelHelper.text">[docs]</a>    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="VColorBarMark.LabelHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.LabelHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="VColorBarMark.PerTickHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.PerTickHelper">[docs]</a>  <span class="k">class</span> <span class="nc">PerTickHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_indices</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
@@ -416,27 +431,49 @@
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">VColorBarMark</span><span class="o">.</span><span class="n">TickLabelsHelper</span><span class="p">()</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">tick</span> <span class="o">=</span> <span class="n">VColorBarMark</span><span class="o">.</span><span class="n">PerTickHelper</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">locator</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">length</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">locator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="n">locator</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span>
+    <span class="nd">@locator.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TicksHelper.locator"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TicksHelper.locator">[docs]</a>    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TicksHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TicksHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
+    <span class="nd">@length.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TicksHelper.length"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TicksHelper.length">[docs]</a>    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TicksHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TicksHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="VColorBarMark.TickLabelsHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TickLabelsHelper">[docs]</a>  <span class="k">class</span> <span class="nc">TickLabelsHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="bp">True</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;font-size&quot;</span><span class="p">:</span><span class="s">&quot;10px&quot;</span><span class="p">,</span> <span class="s">&quot;font-weight&quot;</span><span class="p">:</span><span class="s">&quot;normal&quot;</span><span class="p">,</span> <span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">VColorBarMark</span><span class="o">.</span><span class="n">PerTickHelper</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TickLabelsHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TickLabelsHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="VColorBarMark.TickLabelsHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.VColorBarMark.TickLabelsHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmin_range</span><span class="p">,</span> <span class="n">xmax_range</span><span class="p">,</span> <span class="n">ymin_range</span><span class="p">,</span> <span class="n">ymax_range</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">tick_length</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">tick_locator</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
     <span class="n">Mark</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
 
@@ -453,10 +490,6 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">VColorBarMark</span><span class="o">.</span><span class="n">LabelHelper</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">ticks</span> <span class="o">=</span> <span class="n">VColorBarMark</span><span class="o">.</span><span class="n">TicksHelper</span><span class="p">(</span><span class="n">tick_length</span><span class="p">,</span> <span class="n">tick_locator</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="nb">id</span>
-
-<span class="c">#  def __call__(self, show=None, scale=None):</span>
-<span class="c">#    if scale is not None:</span>
-<span class="c">#      self._scale = scale</span>
 
   <span class="k">def</span> <span class="nf">_update_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_vmin_implicit</span> <span class="o">=</span> <span class="n">_null_min</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vmin_implicit</span><span class="p">)</span>
@@ -956,12 +989,19 @@
       <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">Axes2D</span><span class="o">.</span><span class="n">DomainHelper</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">)</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">scale</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">scale</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.AxisHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.AxisHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span>
+    <span class="nd">@scale.setter</span>
+<div class="viewcode-block" id="Axes2D.AxisHelper.scale"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.AxisHelper.scale">[docs]</a>    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">value</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.CoordinatesHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.CoordinatesHelper">[docs]</a>  <span class="k">class</span> <span class="nc">CoordinatesHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">xmin_range</span><span class="p">,</span> <span class="n">xmax_range</span><span class="p">,</span> <span class="n">ymin_range</span><span class="p">,</span> <span class="n">ymax_range</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
@@ -972,54 +1012,89 @@
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;fill&quot;</span><span class="p">:</span><span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="s">&quot;opacity&quot;</span><span class="p">:</span><span class="mf">0.75</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">Axes2D</span><span class="o">.</span><span class="n">CoordinatesLabelHelper</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{})</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.CoordinatesHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.CoordinatesHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.CoordinatesHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.CoordinatesHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.CoordinatesLabelHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.CoordinatesLabelHelper">[docs]</a>  <span class="k">class</span> <span class="nc">CoordinatesLabelHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;font-size&quot;</span><span class="p">:</span><span class="s">&quot;10px&quot;</span><span class="p">,</span> <span class="s">&quot;font-weight&quot;</span><span class="p">:</span><span class="s">&quot;normal&quot;</span><span class="p">,</span> <span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;text-anchor&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">,</span> <span class="s">&quot;alignment-baseline&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.CoordinatesLabelHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.CoordinatesLabelHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.DomainHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.DomainHelper">[docs]</a>  <span class="k">class</span> <span class="nc">DomainHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="nb">min</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="nb">max</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="nb">min</span>
-      <span class="k">if</span> <span class="nb">max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="nb">max</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_min</span>
+    <span class="nd">@min.setter</span>
+<div class="viewcode-block" id="Axes2D.DomainHelper.min"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.DomainHelper.min">[docs]</a>    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_min</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span>
+    <span class="nd">@min.setter</span>
+<div class="viewcode-block" id="Axes2D.DomainHelper.max"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.DomainHelper.max">[docs]</a>    <span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="n">value</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.LabelHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.LabelHelper">[docs]</a>  <span class="k">class</span> <span class="nc">LabelHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{}):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">label</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;font-weight&quot;</span><span class="p">:</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> <span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;text-anchor&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">,</span> <span class="s">&quot;alignment-baseline&quot;</span><span class="p">:</span><span class="s">&quot;middle&quot;</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text</span>
+    <span class="nd">@text.setter</span>
+<div class="viewcode-block" id="Axes2D.LabelHelper.text"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.LabelHelper.text">[docs]</a>    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.LabelHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.LabelHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.SpineHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.SpineHelper">[docs]</a>  <span class="k">class</span> <span class="nc">SpineHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="bp">True</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="s">&quot;low&quot;</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">position</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.SpineHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.SpineHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span>
+    <span class="nd">@position.setter</span>
+<div class="viewcode-block" id="Axes2D.SpineHelper.position"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.SpineHelper.position">[docs]</a>    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.SpineHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.SpineHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.PerTickHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.PerTickHelper">[docs]</a>  <span class="k">class</span> <span class="nc">PerTickHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_indices</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
@@ -1048,30 +1123,56 @@
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Axes2D</span><span class="o">.</span><span class="n">TickLabelsHelper</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">tick</span> <span class="o">=</span> <span class="n">Axes2D</span><span class="o">.</span><span class="n">PerTickHelper</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">locator</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">length</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">locator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="n">locator</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span>
+    <span class="nd">@locator.setter</span>
+<div class="viewcode-block" id="Axes2D.TicksHelper.locator"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TicksHelper.locator">[docs]</a>    <span class="k">def</span> <span class="nf">locator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_locator</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.TicksHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TicksHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
+    <span class="nd">@length.setter</span>
+<div class="viewcode-block" id="Axes2D.TicksHelper.length"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TicksHelper.length">[docs]</a>    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.TicksHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TicksHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
 <div class="viewcode-block" id="Axes2D.TickLabelsHelper"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TickLabelsHelper">[docs]</a>  <span class="k">class</span> <span class="nc">TickLabelsHelper</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="bp">True</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_angle</span> <span class="o">=</span> <span class="n">angle</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;font-size&quot;</span><span class="p">:</span><span class="s">&quot;10px&quot;</span><span class="p">,</span> <span class="s">&quot;font-weight&quot;</span><span class="p">:</span><span class="s">&quot;normal&quot;</span><span class="p">,</span> <span class="s">&quot;stroke&quot;</span><span class="p">:</span><span class="s">&quot;none&quot;</span><span class="p">}</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">Axes2D</span><span class="o">.</span><span class="n">PerTickHelper</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-      <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-      <span class="k">if</span> <span class="n">angle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_angle</span> <span class="o">=</span> <span class="n">angle</span>
-      <span class="k">if</span> <span class="n">style</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+    <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.TickLabelsHelper.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TickLabelsHelper.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_angle</span>
+    <span class="nd">@angle.setter</span>
+<div class="viewcode-block" id="Axes2D.TickLabelsHelper.angle"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TickLabelsHelper.angle">[docs]</a>    <span class="k">def</span> <span class="nf">angle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_angle</span> <span class="o">=</span> <span class="n">value</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_style</span>
+    <span class="nd">@style.setter</span>
+<div class="viewcode-block" id="Axes2D.TickLabelsHelper.style"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.TickLabelsHelper.style">[docs]</a>    <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_style</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</div></div>
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmin_range</span><span class="p">,</span> <span class="n">xmax_range</span><span class="p">,</span> <span class="n">ymin_range</span><span class="p">,</span> <span class="n">ymax_range</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">xshow</span><span class="p">,</span> <span class="n">yshow</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">xticklocator</span><span class="p">,</span> <span class="n">yticklocator</span><span class="p">,</span> <span class="n">xscale</span><span class="p">,</span> <span class="n">yscale</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">tick_length</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_xmin_range</span> <span class="o">=</span> <span class="n">xmin_range</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_xmax_range</span> <span class="o">=</span> <span class="n">xmax_range</span>
@@ -1104,10 +1205,13 @@
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_children</span> <span class="o">=</span> <span class="p">[]</span>
 
-  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">show</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">show</span>
-
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show</span>
+  <span class="nd">@show.setter</span>
+<div class="viewcode-block" id="Axes2D.show"><a class="viewcode-back" href="../toyplot.html#toyplot.Axes2D.show">[docs]</a>  <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_show</span> <span class="o">=</span> <span class="n">value</span>
+</div>
   <span class="k">def</span> <span class="nf">_update_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_xmin_implicit</span> <span class="o">=</span> <span class="n">_null_min</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xmin_implicit</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_xmax_implicit</span> <span class="o">=</span> <span class="n">_null_max</span><span class="p">(</span><span class="n">xmax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xmax_implicit</span><span class="p">)</span>

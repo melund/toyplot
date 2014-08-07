@@ -59,6 +59,7 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Toyplot Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Toyplot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
@@ -145,35 +146,13 @@ would like to be notified when Toyplot is released.</p>
 </div>
 <div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>First, if you haven&#8217;t already, you&#8217;ll need to install Toyplot from source,
-including its hard dependencies:</p>
-<ul class="simple">
-<li>Python 2.7 - <a class="reference external" href="http://python.org">http://python.org</a></li>
-<li>numpy 1.8.1 - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
-<li>colormath - <a class="reference external" href="https://github.com/gtaylor/python-colormath">https://github.com/gtaylor/python-colormath</a></li>
-</ul>
-<p>And you&#8217;re going to need all of the optional dependencies so you can run the
-regression tests:</p>
-<ul class="simple">
-<li>cairo, pango, pangocairo - typically installed as dependencies of pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
-<li>ffmpeg - <a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a> - required to generate MP4 videos.</li>
-</ul>
-<p>Lastly, you&#8217;ll need to install the tools required for Toyplot&#8217;s build, testing,
-coverage, and documentation:</p>
-<ul class="simple">
-<li>setuptools - <a class="reference external" href="http://pythonhosted.org//setuptools">http://pythonhosted.org//setuptools</a></li>
-<li>nose - unit test framework - <a class="reference external" href="https://nose.readthedocs.org/en/latest/">https://nose.readthedocs.org/en/latest/</a></li>
-<li>coverage - code coverage module - <a class="reference external" href="http://nedbatchelder.com/code/coverage/">http://nedbatchelder.com/code/coverage/</a></li>
-<li>Sphinx - documentation builder - <a class="reference external" href="http://sphinx-doc.org">http://sphinx-doc.org</a></li>
-<li>Sphinx readthedocs theme - <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">https://github.com/snide/sphinx_rtd_theme</a></li>
-<li>numpydocs - <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt</a></li>
-<li>IPython - <a class="reference external" href="http://ipython.org">http://ipython.org</a></li>
-</ul>
-<p>Now, you&#8217;re ready to &#8220;install&#8221; Toyplot - but as a convenience, you&#8217;ll want to use
-&#8220;develop mode&#8221;.  Develop mode is a a feature provided by setuptools that links
-the Toyplot source code to the install directory instead of copying it ... that way
-you can edit the source code in your git sandbox, and you don&#8217;t have to re-install
-it to test your changes:</p>
+<p>First, if you haven&#8217;t already, you&#8217;ll need to install Toyplot&#8217;s
+<a class="reference internal" href="dependencies.html#toyplot-dependencies"><em>dependencies</em></a>.  Then, you&#8217;ll be ready to &#8220;install&#8221;
+Toyplot - but as a convenience, you&#8217;ll want to use &#8220;develop mode&#8221;.  Develop
+mode is a a feature provided by setuptools that links the Toyplot source code
+to the install directory instead of copying it ... that way you can edit the
+source code in your git sandbox, and you don&#8217;t have to re-install it to test
+your changes:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ git clone https://github.com/sandialabs/toyplot.git
 $ cd toyplot
 $ python setup.py develop
@@ -182,12 +161,12 @@ $ python setup.py develop
 </div>
 <div class="section" id="code-walkthrough">
 <h2>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this headline">¶</a></h2>
-<p>Most of toyplot&#8217;s public API is located in <cite>toyplot/__init__.py</cite>, for most
+<p>Most of toyplot&#8217;s public API is located in <cite>toyplot/__init__.py</cite> ... for most
 contributations, that&#8217;s where you&#8217;ll start.  If you&#8217;re adding a new type of
 visualization, you&#8217;ll need to create a new <a class="reference internal" href="toyplot.html#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a> derivative
 there.  Then, you&#8217;ll create factory methods for creating instances of your
 new mark in <a class="reference internal" href="toyplot.html#toyplot.Axes2D" title="toyplot.Axes2D"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Axes2D</span></tt></a> and/or <a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>.  Once
-you&#8217;ve done that, you&#8217;ll need to write code for rendering your new mark
+you&#8217;ve done that, you&#8217;ll need to write code to render your new mark
 in <cite>toyplot/svg.py</cite>.  That&#8217;s it ... all of the other backends are rendered
 from the SVG representation.</p>
 </div>
@@ -215,7 +194,7 @@ the test, it will function normally, comparing the canvas against the reference
 file.</p>
 <p>If you make changes that cause an existing test to fail, the failed SVG will
 be written to <cite>tests/failed/test-name.svg</cite>, so you can compare it against the
-reference SVG in <cite>tests/reference/test-name.svg</cite>.</p>
+corresponding reference SVG in <cite>tests/reference/test-name.svg</cite>.</p>
 </div>
 <div class="section" id="test-coverage">
 <h2>Test Coverage<a class="headerlink" href="#test-coverage" title="Permalink to this headline">¶</a></h2>
@@ -233,8 +212,8 @@ $ python docs/setup.py
 <p>Note that the tutorial documentation is written as an IPython notebook, so the
 docs/setup.py script requires IPython so it can convert the notebook into a
 restructured text file for inclusion with the rest of the documentation.</p>
-<p>Once the documentation is built, you can view it by opening <cite>toyplot/docs/_build/html/index.html</cite>
-in a web browser.</p>
+<p>Once the documentation is built, you can view it by opening
+<cite>toyplot/docs/_build/html/index.html</cite> in a web browser.</p>
 </div>
 </div>
 

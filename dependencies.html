@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Toyplot Ethos &mdash; Toyplot 0.1.0 documentation</title>
+  <title>Toyplot Dependencies &mdash; Toyplot 0.1.0 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
 
   
     <link rel="top" title="Toyplot 0.1.0 documentation" href="index.html"/>
-        <link rel="next" title="Toyplot Dependencies" href="dependencies.html"/>
-        <link rel="prev" title="Welcome!" href="index.html"/> 
+        <link rel="next" title="Installing Toyplot" href="installation.html"/>
+        <link rel="prev" title="The Toyplot Ethos" href="ethos.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -58,8 +58,8 @@
         
         
             <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">The Toyplot Ethos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Toyplot Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Toyplot Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Toyplot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
@@ -120,10 +120,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>The Toyplot Ethos</li>
+    <li>Toyplot Dependencies</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/ethos.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/dependencies.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -131,40 +131,39 @@
 </div>
           <div role="main">
             
-  <a class="reference internal image-reference" href="_images/toyplot.png" id="ethos"><img alt="_images/toyplot.png" class="align-right" id="ethos" src="_images/toyplot.png" style="width: 200px;" /></a>
-<div class="section" id="the-toyplot-ethos">
-<h1>The Toyplot Ethos<a class="headerlink" href="#the-toyplot-ethos" title="Permalink to this headline">¶</a></h1>
-<p>What began as a quick workaround to reduce the size of animations in IPython
-quickly grew into Toyplot, &#8220;the kid-sized plotting toolkit with grownup-sized
-goals&#8221;.  In a nutshell, we think that scientists and engineers should expect
-more from their plots: more interaction, more reproducibility, greater clarity,
-and better aesthetics.</p>
-<p>We especially feel that, in an age of ubiquitous electronic media and the web,
-it makes little sense to publish using media (such as PDF) designed to mimic
-the limitations of static paper.  Toyplot embraces the tools of the web - SVG,
-HTML, and Javascript - as its primary medium, so we can make useful new
-interactions part of the everyday experiences of data graphic users.  Because
-we&#8217;re passionate about publishing and sharing results, Toyplot graphics are
-completely self-contained and embeddable, without the need for a server.  All
-of the Toyplot graphics you see in these pages are live and interactive,
-despite the fact that they were created offline in an IPython notebook and
-passed through several publishing steps on the way to becoming our
-documentation.  Of course, we provide backends to publish Toyplot figures
-to legacy formats including PNG, PDF, Postscript, and MP4.</p>
-<p>Interactivity includes obvious things such as zooming and panning.  But beyond
-that, Toyplot is exploring ideas from efficient animation that doesn&#8217;t impact
-the quality of the graphic to interactive data cursors that display quantities
-of interest and descriptive statistics by pointing at the figure.  And since
-the raw data is already implicitly embedded in a graphic, why not support
-reproducibility by making it easy to export, so the viewer can work with it
-themselves?  That&#8217;s why Toyplot has a context menu to export raw data from a
-figure in CSV format.</p>
-<p>Last but definitely not least: Toyplot fully embraces principles and best
-practices for clarity and aesthetics in data graphics that are well-established
-by the visualization community, yet sadly lacking in contemporary plotting
-libraries.  Toyplot has beautiful color palettes and sensible default styling
-that minimize chartjunk and maximize data ink out of the box, not as
-afterthoughts or addons.</p>
+  <a class="reference internal image-reference" href="_images/toyplot.png"><img alt="_images/toyplot.png" class="align-right" src="_images/toyplot.png" style="width: 200px;" /></a>
+<div class="section" id="toyplot-dependencies">
+<span id="id1"></span><h1>Toyplot Dependencies<a class="headerlink" href="#toyplot-dependencies" title="Permalink to this headline">¶</a></h1>
+<p>Toyplot has the following required dependencies:</p>
+<ul class="simple">
+<li>Python 2.7 - <a class="reference external" href="http://python.org">http://python.org</a></li>
+<li>numpy - <a class="reference external" href="http://numpy.org">http://numpy.org</a></li>
+<li>colormath - <a class="reference external" href="https://github.com/gtaylor/python-colormath">https://github.com/gtaylor/python-colormath</a></li>
+</ul>
+<p>You&#8217;ll need the following if you intend to generate PDF, PNG, Postscript, or
+MP4 versions of your Toyplot figures:</p>
+<ul class="simple">
+<li>pycairo - <a class="reference external" href="http://cairographics.org/pycairo">http://cairographics.org/pycairo</a></li>
+<li>python pango bindings - typically distributed as part of pygtk - <a class="reference external" href="http://www.pygtk.org">http://www.pygtk.org</a></li>
+<li>ffmpeg - <a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a> - required to generate MP4 videos.</li>
+</ul>
+<p>The following isn&#8217;t needed to run Toyplot once it&#8217;s installed, but it&#8217;s required
+to run the setup script when installing Toyplot from source:</p>
+<ul class="simple">
+<li>setuptools - <a class="reference external" href="http://pythonhosted.org//setuptools">http://pythonhosted.org//setuptools</a></li>
+</ul>
+<p>The following are required to run regression tests / view test coverage:</p>
+<ul class="simple">
+<li>nose - unit test framework - <a class="reference external" href="https://nose.readthedocs.org/en/latest/">https://nose.readthedocs.org/en/latest/</a></li>
+<li>coverage - code coverage module - <a class="reference external" href="http://nedbatchelder.com/code/coverage/">http://nedbatchelder.com/code/coverage/</a></li>
+</ul>
+<p>And the following are needed to generate this documentation:</p>
+<ul class="simple">
+<li>Sphinx - documentation builder - <a class="reference external" href="http://sphinx-doc.org">http://sphinx-doc.org</a></li>
+<li>Sphinx readthedocs theme - <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">https://github.com/snide/sphinx_rtd_theme</a></li>
+<li>napoleon - <a class="reference external" href="http://sphinxcontrib-napoleon.readthedocs.org/en/latest/">http://sphinxcontrib-napoleon.readthedocs.org/en/latest/</a></li>
+<li>IPython - <a class="reference external" href="http://ipython.org">http://ipython.org</a></li>
+</ul>
 </div>
 
 
@@ -173,10 +172,10 @@ afterthoughts or addons.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dependencies.html" class="btn btn-neutral float-right" title="Toyplot Dependencies"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installing Toyplot"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ethos.html" class="btn btn-neutral" title="The Toyplot Ethos"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
