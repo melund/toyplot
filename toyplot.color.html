@@ -154,7 +154,7 @@
 in an IPython notebook.</p>
 <dl class="method">
 <dt id="toyplot.color.CategoricalMap.color">
-<tt class="descname">color</tt><big>(</big><em>index</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.color" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">color</tt><big>(</big><em>index</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return one color from the map.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -174,7 +174,7 @@ from the palette.</td>
 
 <dl class="method">
 <dt id="toyplot.color.CategoricalMap.colors">
-<tt class="descname">colors</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.colors" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">colors</tt><big>(</big><em>values</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.colors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a sequence of categorical (nonnegative integer) values to colors.</p>
 <p>Each value is mapped to a color in the underlying palette.  Note that the
 palette repeats infinitely, so any nonnegative integer value will return
@@ -193,7 +193,7 @@ a color from the palette.</p>
 
 <dl class="method">
 <dt id="toyplot.color.CategoricalMap.css">
-<tt class="descname">css</tt><big>(</big><em>index</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.css" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">css</tt><big>(</big><em>index</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#CategoricalMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.CategoricalMap.css" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the CSS representation of one color from the map.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -241,7 +241,7 @@ called.</p>
 <p>Diverging maps generate a color preview when viewed in an IPython notebook.</p>
 <dl class="method">
 <dt id="toyplot.color.DivergingMap.color">
-<tt class="descname">color</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.color" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">color</tt><big>(</big><em>value</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one value to a color.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -257,7 +257,7 @@ called.</p>
 
 <dl class="method">
 <dt id="toyplot.color.DivergingMap.colors">
-<tt class="descname">colors</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.colors" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">colors</tt><big>(</big><em>values</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.colors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an array-like collection of values to colors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -273,7 +273,7 @@ called.</p>
 
 <dl class="method">
 <dt id="toyplot.color.DivergingMap.css">
-<tt class="descname">css</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.css" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">css</tt><big>(</big><em>value</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#DivergingMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.DivergingMap.css" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one value to a CSS representation of its color.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -312,7 +312,7 @@ called.</p>
 an IPython notebook.</p>
 <dl class="method">
 <dt id="toyplot.color.LinearMap.color">
-<tt class="descname">color</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.color" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">color</tt><big>(</big><em>value</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one value to a color.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -328,7 +328,7 @@ an IPython notebook.</p>
 
 <dl class="method">
 <dt id="toyplot.color.LinearMap.colors">
-<tt class="descname">colors</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.colors" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">colors</tt><big>(</big><em>values</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.colors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.colors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an array-like collection of values to colors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -344,7 +344,7 @@ an IPython notebook.</p>
 
 <dl class="method">
 <dt id="toyplot.color.LinearMap.css">
-<tt class="descname">css</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.css" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">css</tt><big>(</big><em>value</em>, <em>domain_min=None</em>, <em>domain_max=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/color.html#LinearMap.css"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.color.LinearMap.css" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert one value to a CSS representation of its color.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

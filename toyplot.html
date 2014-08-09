@@ -296,9 +296,20 @@ as <a class="reference internal" href="#toyplot.Canvas.axes" title="toyplot.Canv
 <dt id="toyplot.Axes2D.PerTickHelper">
 <em class="property">class </em><tt class="descclassname">Axes2D.</tt><tt class="descname">PerTickHelper</tt><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="class">
+<dt id="toyplot.Axes2D.PerTickHelper.TickProxy">
+<em class="property">class </em><tt class="descname">TickProxy</tt><big>(</big><em>tick</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper.TickProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper.TickProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="toyplot.Axes2D.PerTickHelper.TickProxy.style">
+<tt class="descname">style</tt><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper.TickProxy.style"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper.TickProxy.style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="method">
 <dt id="toyplot.Axes2D.PerTickHelper.styles">
-<tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Axes2D.PerTickHelper.</tt><tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -741,8 +752,8 @@ title as a tooltip.</li>
 <li><strong>width</strong> (<em>integer, optional</em>) &#8211; Width of the canvas in drawing units.</li>
 <li><strong>height</strong> (<em>integer, optional</em>) &#8211; Height of the canvas in drawing units.</li>
 <li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the canvas.</li>
-<li><strong>autorender</strong> (string or <cite>False</cite>, optional) &#8211; Specify the name of a backend to use for autorendering or <cite>False</cite> to
-disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</li>
+<li><strong>autorender</strong> (<em>boolean, optional</em>) &#8211; Turn autorendering on / off for this canvas.  Default:
+use the global autorender flag.</li>
 </ul>
 </td>
 </tr>
@@ -782,7 +793,7 @@ to make changes to the canvas.</li>
 
 <dl class="method">
 <dt id="toyplot.Canvas.autorender">
-<tt class="descname">autorender</tt><big>(</big><em>method</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.autorender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.autorender" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">autorender</tt><big>(</big><em>enable</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.autorender"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.autorender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enable / disable canvas autorendering.</p>
 <p>Autorendering - which is enabled by default when a canvas is created -
 controls how the canvas should be displayed automatically without
@@ -794,8 +805,7 @@ shown using any of the rendering backends.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (string or <cite>False</cite>) &#8211; Specify the name of a backend to use for autorendering or <cite>False</cite> to
-disable.  Valid backend names are &#8220;html&#8221;, &#8220;png&#8221;, or &#8220;svg&#8221;.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> (<em>boolean</em>) &#8211; Turn autorendering on / off.</td>
 </tr>
 </tbody>
 </table>
@@ -1150,9 +1160,20 @@ as <a class="reference internal" href="#toyplot.Axes2D.colorbar" title="toyplot.
 <dt id="toyplot.VColorBarMark.PerTickHelper">
 <em class="property">class </em><tt class="descclassname">VColorBarMark.</tt><tt class="descname">PerTickHelper</tt><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="class">
+<dt id="toyplot.VColorBarMark.PerTickHelper.TickProxy">
+<em class="property">class </em><tt class="descname">TickProxy</tt><big>(</big><em>tick</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper.TickProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper.TickProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="toyplot.VColorBarMark.PerTickHelper.TickProxy.style">
+<tt class="descname">style</tt><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper.TickProxy.style"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper.TickProxy.style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="method">
 <dt id="toyplot.VColorBarMark.PerTickHelper.styles">
-<tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">VColorBarMark.PerTickHelper.</tt><tt class="descname">styles</tt><big>(</big><em>values</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark.PerTickHelper.styles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark.PerTickHelper.styles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1209,6 +1230,11 @@ as <a class="reference internal" href="#toyplot.Axes2D.colorbar" title="toyplot.
 <dl class="function">
 <dt id="toyplot.fill">
 <tt class="descclassname">toyplot.</tt><tt class="descname">fill</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>baseline=None</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.fill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="toyplot.plot">
+<tt class="descclassname">toyplot.</tt><tt class="descname">plot</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>stroke=None</em>, <em>stroke_colormap=None</em>, <em>stroke_palette=None</em>, <em>stroke_width=2.0</em>, <em>stroke_opacity=1.0</em>, <em>marker=None</em>, <em>size=20</em>, <em>fill=None</em>, <em>fill_colormap=None</em>, <em>fill_palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>mstyle={'stroke': 'none'}</em>, <em>mlstyle={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.plot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
