@@ -13,8 +13,8 @@ Toyplot has the following required dependencies:
 * numpy - http://numpy.org
 * colormath - https://github.com/gtaylor/python-colormath
 
-You'll need the following if you intend to generate PDF, PNG, Postscript, or
-MP4 versions of your Toyplot figures:
+You'll need the following if you intend to generate PDF, PNG, Encapsulated
+Postscript, or MP4 versions of your Toyplot figures:
 
 * pycairo - http://cairographics.org/pycairo
 * python pango bindings - typically distributed as part of pygtk - http://www.pygtk.org
