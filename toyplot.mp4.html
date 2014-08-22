@@ -140,8 +140,10 @@
 <span id="toyplot-mp4-module"></span><h1>toyplot.mp4 module<a class="headerlink" href="#module-toyplot.mp4" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="toyplot.mp4.render">
-<tt class="descclassname">toyplot.mp4.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>filename</em>, <em>scale=1.0</em>, <em>progress=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/mp4.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.mp4.render" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.mp4.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>filename</em>, <em>width=None</em>, <em>height=None</em>, <em>scale=None</em>, <em>progress=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/mp4.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.mp4.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render a canvas as an MPEG-4 video.</p>
+<p>By default, canvas drawing units are mapped directly to pixels in the output
+MPEG-4 video.  Use one of <cite>width</cite>, <cite>height</cite>, or <cite>scale</cite> to override this behavior.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -149,8 +151,9 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; Canvas to be rendered.</li>
 <li><strong>filename</strong> (<em>string</em>) &#8211; Output video filename.</li>
-<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output video pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to control
-the pixel resolution of the output video.</li>
+<li><strong>width</strong> (<em>number, optional</em>) &#8211; Specify the width of the output video in pixels.</li>
+<li><strong>height</strong> (<em>number, optional</em>) &#8211; Specify the height of the output video in pixels.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output video pixels to <cite>canvas</cite> drawing units.</li>
 <li><strong>progress</strong> (callback function taking a single <cite>frame</cite> argument, optional) &#8211; Callback function that will receive the number of each frame as it&#8217;s
 written; useful to provide an indication of progress to end-users.</li>
 </ul>

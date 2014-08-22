@@ -30,7 +30,7 @@
   
     <link rel="top" title="Toyplot 0.1.0 documentation" href="index.html"/>
         <link rel="up" title="Toyplot Backends" href="backends.html"/>
-        <link rel="next" title="toyplot.ps module" href="toyplot.ps.html"/>
+        <link rel="next" title="toyplot.selenium module" href="toyplot.selenium.html"/>
         <link rel="prev" title="toyplot.pdf module" href="toyplot.pdf.html"/> 
 
   
@@ -140,8 +140,10 @@
 <span id="toyplot-png-module"></span><h1>toyplot.png module<a class="headerlink" href="#module-toyplot.png" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="toyplot.png.render">
-<tt class="descclassname">toyplot.png.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>fobj=None</em>, <em>scale=1.0</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.png.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>fobj=None</em>, <em>width=None</em>, <em>height=None</em>, <em>scale=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render the PNG bitmap representation of a canvas.</p>
+<p>By default, canvas drawing units are mapped directly to pixels in the output
+PNG image.  Use one of <cite>width</cite>, <cite>height</cite>, or <cite>scale</cite> to override this behavior.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -151,8 +153,9 @@
 <li><strong>fobj</strong> (<em>file-like object or string, optional</em>) &#8211; The file to write.  Use a string filepath to write data directly to disk.
 If <cite>None</cite> (the default), the PNG data will be returned to the caller
 instead.</li>
-<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</li>
+<li><strong>width</strong> (<em>number, optional</em>) &#8211; Specify the width of the output image in pixels.</li>
+<li><strong>height</strong> (<em>number, optional</em>) &#8211; Specify the height of the output image in pixels.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.</li>
 </ul>
 </td>
 </tr>
@@ -173,16 +176,19 @@ generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.
 
 <dl class="function">
 <dt id="toyplot.png.render_frames">
-<tt class="descclassname">toyplot.png.</tt><tt class="descname">render_frames</tt><big>(</big><em>canvas</em>, <em>scale=1.0</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render_frames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render_frames" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.png.</tt><tt class="descname">render_frames</tt><big>(</big><em>canvas</em>, <em>width=None</em>, <em>height=None</em>, <em>scale=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/png.html#render_frames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.png.render_frames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Render a canvas as a sequence of PNG images.</p>
+<p>By default, canvas drawing units are mapped directly to pixels in the output
+PNG images.  Use one of <cite>width</cite>, <cite>height</cite>, or <cite>scale</cite> to override this behavior.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; Canvas to be rendered.</li>
-<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.  Use <cite>scale</cite> to
-control the pixel resolution of the output image.</li>
+<li><strong>width</strong> (<em>number, optional</em>) &#8211; Specify the width of the output image in pixels.</li>
+<li><strong>height</strong> (<em>number, optional</em>) &#8211; Specify the height of the output image in pixels.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image pixels to <cite>canvas</cite> drawing units.</li>
 </ul>
 </td>
 </tr>
@@ -214,7 +220,7 @@ generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="toyplot.ps.html" class="btn btn-neutral float-right" title="toyplot.ps module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="toyplot.selenium.html" class="btn btn-neutral float-right" title="toyplot.selenium module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="toyplot.pdf.html" class="btn btn-neutral" title="toyplot.pdf module"><span class="fa fa-arrow-circle-left"></span> Previous</a>

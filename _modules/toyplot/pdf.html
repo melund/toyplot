@@ -140,19 +140,35 @@
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
 <span class="kn">import</span> <span class="nn">cairo</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">toyplot.svg</span>
 <span class="kn">import</span> <span class="nn">toyplot.cairo</span>
 
-<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.pdf.html#toyplot.pdf.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">fobj</span><span class="p">):</span>
+<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.pdf.html#toyplot.pdf.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">fobj</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Render the PDF representation of a canvas.</span>
+
+<span class="sd">  By default, canvas drawing units are mapped directly to points in the output</span>
+<span class="sd">  PNG image.  Use one of `width`, `height`, or `scale` to override this behavior.</span>
 
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  canvas : :class:`toyplot.Canvas`</span>
 <span class="sd">    Canvas to be rendered.</span>
-
 <span class="sd">  fobj : file-like object or string</span>
 <span class="sd">    The file to write.  Use a string filepath to write data directly to disk.</span>
+<span class="sd">  width : number or (number, string) tuple, optional</span>
+<span class="sd">    Specify the width of the output image with optional units.  If the units</span>
+<span class="sd">    aren&#39;t specified, defaults to points.</span>
+<span class="sd">  height : number or (number, string) tuple, optional</span>
+<span class="sd">    Specify the height of the output image with optional units.  If the units</span>
+<span class="sd">    aren&#39;t specified, defaults to points.</span>
+<span class="sd">  scale : number, optional</span>
+<span class="sd">    Ratio of output image points to `canvas` drawing units.</span>
+
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+
+<span class="sd">  &gt;&gt;&gt; toyplot.pdf.render(canvas, &quot;figure-1.pdf&quot;, width=(4, &quot;inches&quot;))</span>
 
 <span class="sd">  Notes</span>
 <span class="sd">  -----</span>
@@ -160,8 +176,10 @@
 <span class="sd">  generated with :func:`toyplot.svg.render()`.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">svg</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
-  <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">PDFSurface</span><span class="p">(</span><span class="n">fobj</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_width</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span><span class="p">)</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_point_scale</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+  <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">PDFSurface</span><span class="p">(</span><span class="n">fobj</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_width</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span><span class="p">)</span>
   <span class="n">context</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">Context</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+  <span class="n">context</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
   <span class="n">toyplot</span><span class="o">.</span><span class="n">cairo</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">svg</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
   <span class="n">surface</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
   <span class="n">surface</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>

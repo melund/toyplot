@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toyplot.ps module &mdash; Toyplot 0.1.0 documentation</title>
+  <title>toyplot.eps module &mdash; Toyplot 0.1.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="Toyplot 0.1.0 documentation" href="index.html"/>
         <link rel="up" title="Toyplot Backends" href="backends.html"/>
-        <link rel="next" title="toyplot.selenium module" href="toyplot.selenium.html"/>
-        <link rel="prev" title="toyplot.png module" href="toyplot.png.html"/> 
+        <link rel="next" title="toyplot.html module" href="toyplot.html.html"/>
+        <link rel="prev" title="toyplot.cairo module" href="toyplot.cairo.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -125,10 +125,10 @@
       
           <li><a href="backends.html">Toyplot Backends</a> &raquo;</li>
       
-    <li>toyplot.ps module</li>
+    <li>toyplot.eps module</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/toyplot.ps.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/toyplot.eps.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -136,12 +136,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-toyplot.ps">
-<span id="toyplot-ps-module"></span><h1>toyplot.ps module<a class="headerlink" href="#module-toyplot.ps" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="toyplot.ps.render">
-<tt class="descclassname">toyplot.ps.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>fobj</em><big>)</big><a class="reference internal" href="_modules/toyplot/ps.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.ps.render" title="Permalink to this definition">¶</a></dt>
-<dd><p>Render the Postscript representation of a canvas.</p>
+  <div class="section" id="toyplot-eps-module">
+<h1>toyplot.eps module<a class="headerlink" href="#toyplot-eps-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-toyplot.eps"></span><dl class="function">
+<dt id="toyplot.eps.render">
+<tt class="descclassname">toyplot.eps.</tt><tt class="descname">render</tt><big>(</big><em>canvas</em>, <em>fobj</em>, <em>width=None</em>, <em>height=None</em>, <em>scale=None</em><big>)</big><a class="reference internal" href="_modules/toyplot/eps.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.eps.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the Encapsulated Postscript representation of a canvas.</p>
+<p>By default, canvas drawing units are mapped directly to points in the output
+PNG image.  Use one of <cite>width</cite>, <cite>height</cite>, or <cite>scale</cite> to override this behavior.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -149,14 +151,27 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>canvas</strong> (<a class="reference internal" href="toyplot.html#toyplot.Canvas" title="toyplot.Canvas"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Canvas</span></tt></a>) &#8211; Canvas to be rendered.</li>
 <li><strong>fobj</strong> (<em>file-like object or string</em>) &#8211; The file to write.  Use a string filepath to write data directly to disk.</li>
+<li><strong>width</strong> (<em>number or (number, string) tuple, optional</em>) &#8211; Specify the width of the output image with optional units.  If the units
+aren&#8217;t specified, defaults to points.</li>
+<li><strong>height</strong> (<em>number or (number, string) tuple, optional</em>) &#8211; Specify the height of the output image with optional units.  If the units
+aren&#8217;t specified, defaults to points.</li>
+<li><strong>scale</strong> (<em>number, optional</em>) &#8211; Ratio of output image points to <cite>canvas</cite> drawing units.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">toyplot</span><span class="o">.</span><span class="n">eps</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="s">&quot;figure-1.eps&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="s">&quot;inches&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
 <p class="rubric">Notes</p>
-<p>The output Postscript is rendered using an SVG representation of the canvas
-generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.render" title="toyplot.svg.render"><tt class="xref py py-func docutils literal"><span class="pre">toyplot.svg.render()</span></tt></a>.</p>
+<p>When you specify <cite>width</cite> or <cite>height</cite> the output EPS file may have a smaller
+bounding-box than expected.  This is because <cite>width</cite> and <cite>height</cite> specify the
+desired dimensions of the <em>canvas</em>, while the output EPS file bounding box
+tightly bounds only the visible parts of the graphic.  A Toyplot canvas is
+transparent by default, and thus wouldn&#8217;t be included in the EPS bounding
+box, unless explicitly made visible with the &#8220;background-color&#8221; style.</p>
 </dd></dl>
 
 </div>
@@ -167,10 +182,10 @@ generated with <a class="reference internal" href="toyplot.svg.html#toyplot.svg.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="toyplot.selenium.html" class="btn btn-neutral float-right" title="toyplot.selenium module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="toyplot.html.html" class="btn btn-neutral float-right" title="toyplot.html module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="toyplot.png.html" class="btn btn-neutral" title="toyplot.png module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="toyplot.cairo.html" class="btn btn-neutral" title="toyplot.cairo module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -449,7 +449,7 @@ unspecified, a default <a class="reference internal" href="toyplot.color.html#to
 
 <dl class="method">
 <dt id="toyplot.Axes2D.colorbar">
-<tt class="descclassname">Axes2D.</tt><tt class="descname">colorbar</tt><big>(</big><em>values=None</em>, <em>palette=None</em>, <em>label=None</em>, <em>min=None</em>, <em>max=None</em>, <em>id=None</em>, <em>tick_length=5</em>, <em>tick_locator=None</em>, <em>offset=0</em>, <em>width=10</em>, <em>style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.colorbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.colorbar" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Axes2D.</tt><tt class="descname">colorbar</tt><big>(</big><em>values=None</em>, <em>palette=None</em>, <em>colormap=None</em>, <em>label=None</em>, <em>min=None</em>, <em>max=None</em>, <em>id=None</em>, <em>tick_length=5</em>, <em>tick_locator=None</em>, <em>offset=0</em>, <em>width=10</em>, <em>style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.colorbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.colorbar" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -634,7 +634,7 @@ title as a tooltip.</li>
 
 <dl class="method">
 <dt id="toyplot.Axes2D.text">
-<tt class="descclassname">Axes2D.</tt><tt class="descname">text</tt><big>(</big><em>a</em>, <em>b</em>, <em>text</em>, <em>along='x'</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.text" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Axes2D.</tt><tt class="descname">text</tt><big>(</big><em>a</em>, <em>b</em>, <em>text</em>, <em>along='x'</em>, <em>angle=0</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Axes2D.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Axes2D.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add text to the axes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -740,7 +740,7 @@ title as a tooltip.</li>
 
 <dl class="class">
 <dt id="toyplot.Canvas">
-<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">Canvas</tt><big>(</big><em>width=600</em>, <em>height=600</em>, <em>style={}</em>, <em>id=None</em>, <em>autorender=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">Canvas</tt><big>(</big><em>width=None</em>, <em>height=None</em>, <em>style={}</em>, <em>id=None</em>, <em>autorender=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Top-level container for Toyplot drawings.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -748,8 +748,8 @@ title as a tooltip.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>integer, optional</em>) &#8211; Width of the canvas in drawing units.</li>
-<li><strong>height</strong> (<em>integer, optional</em>) &#8211; Height of the canvas in drawing units.</li>
+<li><strong>width</strong> (<em>integer, optional</em>) &#8211; Width of the canvas in drawing units.  Defaults to 600 if unspecified.</li>
+<li><strong>height</strong> (<em>integer, optional</em>) &#8211; Height of the canvas in drawing units.  Defaults to the canvas width if unspecified.</li>
 <li><strong>style</strong> (<em>dict, optional</em>) &#8211; Collection of CSS styles to apply to the canvas.</li>
 <li><strong>autorender</strong> (<em>boolean, optional</em>) &#8211; Turn autorendering on / off for this canvas.  Default:
 use the global autorender flag.</li>
@@ -812,7 +812,7 @@ shown using any of the rendering backends.</p>
 
 <dl class="method">
 <dt id="toyplot.Canvas.axes">
-<tt class="descname">axes</tt><big>(</big><em>bounds=None</em>, <em>rect=None</em>, <em>corner=None</em>, <em>grid=None</em>, <em>gutter=50</em>, <em>show=True</em>, <em>xshow=True</em>, <em>yshow=True</em>, <em>label=None</em>, <em>palette=None</em>, <em>padding=10</em>, <em>tick_length=5</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>xticklocator=None</em>, <em>yticklocator=None</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.axes" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">axes</tt><big>(</big><em>bounds=None</em>, <em>rect=None</em>, <em>corner=None</em>, <em>grid=None</em>, <em>gutter=50</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>show=True</em>, <em>xshow=True</em>, <em>yshow=True</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xticklocator=None</em>, <em>yticklocator=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>palette=None</em>, <em>padding=10</em>, <em>tick_length=5</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.axes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a set of 2D axes to the canvas.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -888,8 +888,13 @@ more than one cell.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="toyplot.Canvas.table">
+<tt class="descname">table</tt><big>(</big><em>rows</em>, <em>columns</em>, <em>bounds=None</em>, <em>rect=None</em>, <em>corner=None</em>, <em>grid=None</em>, <em>gutter=50</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="toyplot.Canvas.text">
-<tt class="descname">text</tt><big>(</big><em>x</em>, <em>y</em>, <em>text</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.text" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">text</tt><big>(</big><em>x</em>, <em>y</em>, <em>text</em>, <em>angle=0.0</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Canvas.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Canvas.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add text to the canvas.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1108,8 +1113,14 @@ domain.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="toyplot.Table">
+<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">Table</tt><big>(</big><em>xmin_range</em>, <em>xmax_range</em>, <em>ymin_range</em>, <em>ymax_range</em>, <em>rows</em>, <em>columns</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#Table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.Table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
 <dt id="toyplot.TextMark">
-<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">TextMark</tt><big>(</big><em>along</em>, <em>series</em>, <em>text</em>, <em>fill</em>, <em>opacity</em>, <em>title</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#TextMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.TextMark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">TextMark</tt><big>(</big><em>along</em>, <em>series</em>, <em>text</em>, <em>angle</em>, <em>fill</em>, <em>opacity</em>, <em>title</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#TextMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.TextMark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a></p>
 <p>Render text.</p>
 <p>Do not create TextMark instances directly.  Use factory methods such as
@@ -1118,7 +1129,7 @@ domain.</p>
 
 <dl class="class">
 <dt id="toyplot.VColorBarMark">
-<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">VColorBarMark</tt><big>(</big><em>xmin_range</em>, <em>xmax_range</em>, <em>ymin_range</em>, <em>ymax_range</em>, <em>label</em>, <em>palette</em>, <em>padding</em>, <em>tick_length</em>, <em>min</em>, <em>max</em>, <em>tick_locator</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">toyplot.</tt><tt class="descname">VColorBarMark</tt><big>(</big><em>xmin_range</em>, <em>xmax_range</em>, <em>ymin_range</em>, <em>ymax_range</em>, <em>label</em>, <em>colormap</em>, <em>padding</em>, <em>tick_length</em>, <em>min</em>, <em>max</em>, <em>tick_locator</em>, <em>style</em>, <em>id</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#VColorBarMark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.VColorBarMark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#toyplot.Mark" title="toyplot.Mark"><tt class="xref py py-class docutils literal"><span class="pre">toyplot.Mark</span></tt></a></p>
 <p>Displays a one-dimensional mapping from values to colors.</p>
 <p>Do not create VColorbarMark instances directly.  Use factory methods such
@@ -1223,22 +1234,22 @@ as <a class="reference internal" href="#toyplot.Axes2D.colorbar" title="toyplot.
 
 <dl class="function">
 <dt id="toyplot.bars">
-<tt class="descclassname">toyplot.</tt><tt class="descname">bars</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>baseline='stacked'</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#bars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.bars" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.</tt><tt class="descname">bars</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>along='x'</em>, <em>baseline='stacked'</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>width=None</em>, <em>height=None</em>, <em>canvas_style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#bars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.bars" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="toyplot.fill">
-<tt class="descclassname">toyplot.</tt><tt class="descname">fill</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>baseline=None</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.fill" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.</tt><tt class="descname">fill</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>c=None</em>, <em>along='x'</em>, <em>baseline=None</em>, <em>fill=None</em>, <em>colormap=None</em>, <em>palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>id=None</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>width=None</em>, <em>height=None</em>, <em>canvas_style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.fill" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="toyplot.plot">
-<tt class="descclassname">toyplot.</tt><tt class="descname">plot</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>stroke=None</em>, <em>stroke_colormap=None</em>, <em>stroke_palette=None</em>, <em>stroke_width=2.0</em>, <em>stroke_opacity=1.0</em>, <em>marker=None</em>, <em>size=20</em>, <em>fill=None</em>, <em>fill_colormap=None</em>, <em>fill_palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>mstyle={'stroke': 'none'}</em>, <em>mlstyle={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.plot" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.</tt><tt class="descname">plot</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>along='x'</em>, <em>stroke=None</em>, <em>stroke_colormap=None</em>, <em>stroke_palette=None</em>, <em>stroke_width=2.0</em>, <em>stroke_opacity=1.0</em>, <em>marker=None</em>, <em>size=20</em>, <em>fill=None</em>, <em>fill_colormap=None</em>, <em>fill_palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={}</em>, <em>mstyle={'stroke': 'none'}</em>, <em>mlstyle={}</em>, <em>id=None</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>width=None</em>, <em>height=None</em>, <em>canvas_style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.plot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="toyplot.scatterplot">
-<tt class="descclassname">toyplot.</tt><tt class="descname">scatterplot</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>width=800</em>, <em>height=600</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>along='x'</em>, <em>stroke=None</em>, <em>stroke_colormap=None</em>, <em>stroke_palette=None</em>, <em>stroke_width=2.0</em>, <em>stroke_opacity=1.0</em>, <em>marker='o'</em>, <em>size=20</em>, <em>fill=None</em>, <em>fill_colormap=None</em>, <em>fill_palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={'stroke': 'none'}</em>, <em>mstyle={'stroke': 'none'}</em>, <em>mlstyle={}</em>, <em>id=None</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#scatterplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.scatterplot" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">toyplot.</tt><tt class="descname">scatterplot</tt><big>(</big><em>a</em>, <em>b=None</em>, <em>along='x'</em>, <em>stroke=None</em>, <em>stroke_colormap=None</em>, <em>stroke_palette=None</em>, <em>stroke_width=2.0</em>, <em>stroke_opacity=1.0</em>, <em>marker='o'</em>, <em>size=20</em>, <em>fill=None</em>, <em>fill_colormap=None</em>, <em>fill_palette=None</em>, <em>opacity=1.0</em>, <em>title=None</em>, <em>style={'stroke': 'none'}</em>, <em>mstyle={'stroke': 'none'}</em>, <em>mlstyle={}</em>, <em>id=None</em>, <em>xmin=None</em>, <em>xmax=None</em>, <em>ymin=None</em>, <em>ymax=None</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>xscale='linear'</em>, <em>yscale='linear'</em>, <em>width=None</em>, <em>height=None</em>, <em>canvas_style={}</em><big>)</big><a class="reference internal" href="_modules/toyplot.html#scatterplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#toyplot.scatterplot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>

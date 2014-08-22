@@ -148,26 +148,29 @@
 <span class="k">except</span><span class="p">:</span> <span class="c"># pragma: no cover</span>
   <span class="kn">import</span> <span class="nn">StringIO</span>
 
-<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.png.html#toyplot.png.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">fobj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.png.html#toyplot.png.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">fobj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Render the PNG bitmap representation of a canvas.</span>
+
+<span class="sd">  By default, canvas drawing units are mapped directly to pixels in the output</span>
+<span class="sd">  PNG image.  Use one of `width`, `height`, or `scale` to override this behavior.</span>
 
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  canvas : :class:`toyplot.Canvas`</span>
 <span class="sd">    Canvas to be rendered.</span>
-
 <span class="sd">  fobj : file-like object or string, optional</span>
 <span class="sd">    The file to write.  Use a string filepath to write data directly to disk.</span>
 <span class="sd">    If `None` (the default), the PNG data will be returned to the caller</span>
 <span class="sd">    instead.</span>
-
+<span class="sd">  width : number, optional</span>
+<span class="sd">    Specify the width of the output image in pixels.</span>
+<span class="sd">  height : number, optional</span>
+<span class="sd">    Specify the height of the output image in pixels.</span>
 <span class="sd">  scale : number, optional</span>
-<span class="sd">    Ratio of output image pixels to `canvas` drawing units.  Use `scale` to</span>
-<span class="sd">    control the pixel resolution of the output image.</span>
+<span class="sd">    Ratio of output image pixels to `canvas` drawing units.</span>
 
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
-
 <span class="sd">  png : PNG image data, or `None`</span>
 <span class="sd">    PNG representation of `canvas`, or `None` if the caller specifies the</span>
 <span class="sd">    `fobj` parameter.</span>
@@ -178,6 +181,7 @@
 <span class="sd">  generated with :func:`toyplot.svg.render()`.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">svg</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_pixel_scale</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
   <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">ImageSurface</span><span class="p">(</span><span class="n">cairo</span><span class="o">.</span><span class="n">FORMAT_ARGB32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_width</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span><span class="p">))</span>
   <span class="n">context</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">Context</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
   <span class="n">context</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
@@ -189,17 +193,22 @@
   <span class="k">else</span><span class="p">:</span>
     <span class="n">surface</span><span class="o">.</span><span class="n">write_to_png</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="render_frames"><a class="viewcode-back" href="../../toyplot.png.html#toyplot.png.render_frames">[docs]</a><span class="k">def</span> <span class="nf">render_frames</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<div class="viewcode-block" id="render_frames"><a class="viewcode-back" href="../../toyplot.png.html#toyplot.png.render_frames">[docs]</a><span class="k">def</span> <span class="nf">render_frames</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Render a canvas as a sequence of PNG images.</span>
+
+<span class="sd">  By default, canvas drawing units are mapped directly to pixels in the output</span>
+<span class="sd">  PNG images.  Use one of `width`, `height`, or `scale` to override this behavior.</span>
 
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  canvas : :class:`toyplot.Canvas`</span>
 <span class="sd">    Canvas to be rendered.</span>
-
+<span class="sd">  width : number, optional</span>
+<span class="sd">    Specify the width of the output image in pixels.</span>
+<span class="sd">  height : number, optional</span>
+<span class="sd">    Specify the height of the output image in pixels.</span>
 <span class="sd">  scale : number, optional</span>
-<span class="sd">    Ratio of output image pixels to `canvas` drawing units.  Use `scale` to</span>
-<span class="sd">    control the pixel resolution of the output image.</span>
+<span class="sd">    Ratio of output image pixels to `canvas` drawing units.</span>
 
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -218,6 +227,7 @@
 <span class="sd">  ...   open(&quot;frame-%s.png&quot; % frame).write(png)</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">svg</span><span class="p">,</span> <span class="n">svg_animation</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">animation</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_pixel_scale</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">time</span><span class="p">,</span> <span class="n">changes</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">svg_animation</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()):</span>
     <span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">apply_changes</span><span class="p">(</span><span class="n">svg</span><span class="p">,</span> <span class="n">changes</span><span class="p">)</span>
     <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">ImageSurface</span><span class="p">(</span><span class="n">cairo</span><span class="o">.</span><span class="n">FORMAT_ARGB32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_width</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span><span class="p">))</span>

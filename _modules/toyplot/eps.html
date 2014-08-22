@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>toyplot.mp4 &mdash; Toyplot 0.1.0 documentation</title>
+  <title>toyplot.eps &mdash; Toyplot 0.1.0 documentation</title>
   
 
   
@@ -123,7 +123,7 @@
       
           <li><a href="../toyplot.html">toyplot</a> &raquo;</li>
       
-    <li>toyplot.mp4</li>
+    <li>toyplot.eps</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -132,73 +132,61 @@
 </div>
           <div role="main">
             
-  <h1>Source code for toyplot.mp4</h1><div class="highlight"><pre>
+  <h1>Source code for toyplot.eps</h1><div class="highlight"><pre>
 <span class="c"># Copyright 2014, Sandia Corporation. Under the terms of Contract</span>
 <span class="c"># DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains certain</span>
 <span class="c"># rights in this software.</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">toyplot.png</span>
+<span class="kn">import</span> <span class="nn">cairo</span>
+<span class="kn">import</span> <span class="nn">toyplot.cairo</span>
+<span class="kn">import</span> <span class="nn">toyplot.svg</span>
 
-<span class="k">def</span> <span class="nf">_require_ffmpeg</span><span class="p">():</span>
-  <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;PATH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&quot;ffmpeg&quot;</span><span class="p">)):</span>
-      <span class="k">return</span>
-  <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;An ffmpeg executable is required.&quot;</span><span class="p">)</span> <span class="c"># pragma: no cover</span>
+<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.eps.html#toyplot.eps.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">fobj</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Render the Encapsulated Postscript representation of a canvas.</span>
 
-<div class="viewcode-block" id="render"><a class="viewcode-back" href="../../toyplot.mp4.html#toyplot.mp4.render">[docs]</a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Render a canvas as an MPEG-4 video.</span>
-
-<span class="sd">  By default, canvas drawing units are mapped directly to pixels in the output</span>
-<span class="sd">  MPEG-4 video.  Use one of `width`, `height`, or `scale` to override this behavior.</span>
+<span class="sd">  By default, canvas drawing units are mapped directly to points in the output</span>
+<span class="sd">  PNG image.  Use one of `width`, `height`, or `scale` to override this behavior.</span>
 
 <span class="sd">  Parameters</span>
 <span class="sd">  ----------</span>
 <span class="sd">  canvas : :class:`toyplot.Canvas`</span>
 <span class="sd">    Canvas to be rendered.</span>
-<span class="sd">  filename : string</span>
-<span class="sd">    Output video filename.</span>
-<span class="sd">  width : number, optional</span>
-<span class="sd">    Specify the width of the output video in pixels.</span>
-<span class="sd">  height : number, optional</span>
-<span class="sd">    Specify the height of the output video in pixels.</span>
+<span class="sd">  fobj : file-like object or string</span>
+<span class="sd">    The file to write.  Use a string filepath to write data directly to disk.</span>
+<span class="sd">  width : number or (number, string) tuple, optional</span>
+<span class="sd">    Specify the width of the output image with optional units.  If the units</span>
+<span class="sd">    aren&#39;t specified, defaults to points.</span>
+<span class="sd">  height : number or (number, string) tuple, optional</span>
+<span class="sd">    Specify the height of the output image with optional units.  If the units</span>
+<span class="sd">    aren&#39;t specified, defaults to points.</span>
 <span class="sd">  scale : number, optional</span>
-<span class="sd">    Ratio of output video pixels to `canvas` drawing units.</span>
-<span class="sd">  progress : callback function taking a single `frame` argument, optional</span>
-<span class="sd">    Callback function that will receive the number of each frame as it&#39;s</span>
-<span class="sd">    written; useful to provide an indication of progress to end-users.</span>
-
-<span class="sd">  Notes</span>
-<span class="sd">  -----</span>
-<span class="sd">  The output video frames are rendered using a PNG representation of the</span>
-<span class="sd">  canvas generated with :func:`toyplot.png.render()`.</span>
+<span class="sd">    Ratio of output image points to `canvas` drawing units.</span>
 
 <span class="sd">  Examples</span>
 <span class="sd">  --------</span>
-<span class="sd">  &gt;&gt;&gt; def callback(frame):</span>
-<span class="sd">  ...   print &quot;Writing frame %s&quot; % frame</span>
-<span class="sd">  ... toyplot.mp4.render(canvas, &quot;test.mp4&quot;, progress=callback)</span>
-<span class="sd">  &quot;&quot;&quot;</span>
-  <span class="n">_require_ffmpeg</span><span class="p">()</span>
 
-  <span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s">&quot;ffmpeg&quot;</span><span class="p">,</span>
-    <span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;image2pipe&quot;</span><span class="p">,</span>
-    <span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;png&quot;</span><span class="p">,</span>
-    <span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">,</span>
-    <span class="s">&quot;-pix_fmt&quot;</span><span class="p">,</span> <span class="s">&quot;yuv420p&quot;</span><span class="p">,</span>
-    <span class="s">&quot;-y&quot;</span><span class="p">,</span>
-    <span class="n">filename</span><span class="p">,</span>
-    <span class="p">]</span>
-  <span class="n">ffmpeg</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">frame</span><span class="p">,</span> <span class="n">png</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toyplot</span><span class="o">.</span><span class="n">png</span><span class="o">.</span><span class="n">render_frames</span><span class="p">(</span><span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">progress</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-      <span class="n">progress</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-    <span class="n">ffmpeg</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">png</span><span class="p">)</span>
-  <span class="n">ffmpeg</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="sd">  &gt;&gt;&gt; toyplot.eps.render(canvas, &quot;figure-1.eps&quot;, width=(4.5, &quot;inches&quot;))</span>
+
+<span class="sd">  Notes</span>
+<span class="sd">  -----</span>
+<span class="sd">  When you specify `width` or `height` the output EPS file may have a smaller</span>
+<span class="sd">  bounding-box than expected.  This is because `width` and `height` specify the</span>
+<span class="sd">  desired dimensions of the *canvas*, while the output EPS file bounding box</span>
+<span class="sd">  tightly bounds only the visible parts of the graphic.  A Toyplot canvas is</span>
+<span class="sd">  transparent by default, and thus wouldn&#39;t be included in the EPS bounding</span>
+<span class="sd">  box, unless explicitly made visible with the &quot;background-color&quot; style.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">svg</span> <span class="o">=</span> <span class="n">toyplot</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_point_scale</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+  <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">PSSurface</span><span class="p">(</span><span class="n">fobj</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_width</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">canvas</span><span class="o">.</span><span class="n">_height</span><span class="p">)</span>
+  <span class="n">surface</span><span class="o">.</span><span class="n">set_eps</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">context</span> <span class="o">=</span> <span class="n">cairo</span><span class="o">.</span><span class="n">Context</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+  <span class="n">context</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+  <span class="n">toyplot</span><span class="o">.</span><span class="n">cairo</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">svg</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+  <span class="n">surface</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+  <span class="n">surface</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 </pre></div></div>
 
           </div>
