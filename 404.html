@@ -1,11 +1,49 @@
 ---
 permalink: /404.html
 ---
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
+    <title>Toyplot</title>
+    <meta http-equiv="refresh" content="5; url=http://toyplot.readthedocs.org">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css">
+    <style>
+      .container
+      {
+        width: 800px;
+        height: 300px;
+        margin: auto;
+      }
+      .child
+      {
+        height: 200px;
+        position: relative;
+        top: 75px;
+      }
+      .logo
+      {
+        height: 200px;
+        float: left;
+      }
+      p
+      {
+        font-family: Lato, proxima-nova, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 24px;
+        position: relative;
+        top: 80px;
+      }
+      a, a:hover, a:visited
+      {
+        color: rgb(41, 128, 185);
+      }
+    </style>
   </head>
   <body>
-    Whoops!
+    <div class="container">
+      <div class="child">
+        <img src="toyplot.png" class="logo"/>
+        <p>You're being redirected to the official Toyplot documentation at <a href="http://toyplot.readthedocs.org">http://toyplot.readthedocs.org</a> &hellip;</p>
+      </div>
+    </div>
   </body>
 </html>

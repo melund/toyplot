@@ -1,265 +1,46 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Welcome! &mdash; Toyplot 0.1.0 documentation</title>
-  
-
-  
-  
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/toyplot.css" type="text/css" />
-  
-
-  
-    <link rel="top" title="Toyplot 0.1.0 documentation" href="#"/>
-        <link rel="next" title="The Toyplot Ethos" href="ethos.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Toyplot</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
+<html>
+  <head>
+    <title>Toyplot</title>
+    <meta http-equiv="refresh" content="5; url=http://toyplot.readthedocs.org">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css">
+    <style>
+      .container
+      {
+        width: 800px;
+        height: 300px;
+        margin: auto;
+      }
+      .child
+      {
+        height: 200px;
+        position: relative;
+        top: 75px;
+      }
+      .logo
+      {
+        height: 200px;
+        float: left;
+      }
+      p
+      {
+        font-family: Lato, proxima-nova, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 24px;
+        position: relative;
+        top: 80px;
+      }
+      a, a:hover, a:visited
+      {
+        color: rgb(41, 128, 185);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child">
+        <img src="toyplot.png" class="logo"/>
+        <p>You're being redirected to the official Toyplot documentation at <a href="http://toyplot.readthedocs.org">http://toyplot.readthedocs.org</a> &hellip;</p>
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
-        
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Toyplot Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Toyplot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From Source</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">The Toyplot Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#styles">Styles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#plotting">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#palettes">Palettes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#filled-regions">Filled Regions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#barplots">Barplots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#scatterplots">Scatterplots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#markers">Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#plots-revisited">Plots Revisited</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#rendering">Rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#axes">Axes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#animation">Animation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hacking.html">Toyplot for Hackers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#code-walkthrough">Code Walkthrough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#running-regression-tests">Running Regression Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#modifying-regression-tests">Modifying Regression Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#test-coverage">Test Coverage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#building-the-documentation">Building the Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">The Toyplot Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.html">toyplot module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.color.html">toyplot.color module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.color.css.html">toyplot.color.css module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="backends.html">Toyplot Backends</a></li>
-</ul>
-</li>
-</ul>
-
-        
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Toyplot</a>
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Welcome!</li>
-      <li class="wy-breadcrumbs-aside">
-        
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
-        
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            
-  <a class="reference internal image-reference" href="_images/toyplot.png"><img alt="_images/toyplot.png" class="align-right" src="_images/toyplot.png" style="width: 300px;" /></a>
-<div class="section" id="welcome">
-<h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to Toyplot, the kid-sized plotting toolkit for Python with grownup-sized goals:</p>
-<ul class="simple">
-<li>Develop beautiful interactive, animated plots that embrace the unique capabilities of electronic publishing and support repoducibility.</li>
-<li>Create the best possible data graphics &#8220;out-of-the-box&#8221;, maximizing data ink and minimizing chartjunk.</li>
-<li>Provide a clean, minimalist interface that scientists and engineers will love.</li>
-</ul>
-<p>Read more about our ideas for Toyplot and scientific publishing <a class="reference internal" href="ethos.html#ethos"><em>here</em></a>.</p>
-</div>
-<div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ethos.html">The Toyplot Ethos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Toyplot Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Toyplot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#using-your-os-package-manager">Using Your OS Package Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#using-pip-easy-install">Using Pip / Easy Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From Source</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">The Toyplot Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#styles">Styles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#plotting">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#palettes">Palettes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#filled-regions">Filled Regions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#barplots">Barplots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#scatterplots">Scatterplots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#markers">Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#plots-revisited">Plots Revisited</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#rendering">Rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#axes">Axes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#animation">Animation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hacking.html">Toyplot for Hackers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#code-walkthrough">Code Walkthrough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#running-regression-tests">Running Regression Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#modifying-regression-tests">Modifying Regression Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#test-coverage">Test Coverage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking.html#building-the-documentation">Building the Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">The Toyplot Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.html">toyplot module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.color.html">toyplot.color module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="toyplot.color.css.html">toyplot.color.css module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="backends.html">Toyplot Backends</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
-</div>
-
-
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ethos.html" class="btn btn-neutral float-right" title="The Toyplot Ethos"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2014, Sandia Corporation. Under the terms of Contract
-DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains certain
-rights in this software.  SAND2014-15494W.
-    </p>
-  </div>
-
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
-</footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>
